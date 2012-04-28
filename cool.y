@@ -140,7 +140,7 @@
 
     %type <formals> dummy_formal_list
 
-    %type <expr> dummy_expr
+    %type <expression> dummy_expr
 
     /* Precedence declarations go here. */
     
@@ -162,27 +162,30 @@
     ;
     
     /* If no parent is specified, the class inherits from the Object class. */
-    class	: CLASS TYPEID '{' feature_list '}' ';'
+    class	: CLASS TYPEID '{' feature_list '}'
     { $$ = class_($2,idtable.add_string("Object"),$4,
     stringtable.add_string(curr_filename)); }
-    | CLASS TYPEID INHERITS TYPEID '{' feature_list '}' ';'
+    | CLASS TYPEID INHERITS TYPEID '{' feature_list '}'
     { $$ = class_($2,$4,$6,stringtable.add_string(curr_filename)); }
     ;
 
     /* TODO(veni): Features */
     feature_list
-    : feature /* single feature */
-    { $$ = single_Features($1);
-    parse_results = $$; }
-    | feature_list feature /* several features */
-    { $$ = append_Features($1, single_Features($2));
-    parse_results = $$; }
-    | { $$ = nil_Features(); }
+    : { $$ = nil_Features(); }
+    | feature /* single feature  */
+    { $$ = single_Features($1); }
+    | feature_list feature   /*several features */
+    { $$ = append_Features($1, single_Features($2));}
     ;
 
-
-    feature : OBJECTID '(' dummy_formal_list ')' ':' TYPEID '{' dummy_expr '}'
-    { $$ = method_($1, $3, $6,$8); };
+    feature :
+    OBJECTID '(' dummy_formal_list ')' ':' TYPEID '{' dummy_expr '}'
+    { $$ = method($1, $3, $6, $8); }
+     | OBJECTID ':' TYPEID dummy_expr
+    { $$ = attr($1, $3, $4); }
+    | OBJECTID ':' TYPEID ASSIGN dummy_expr
+    { $$ = attr($1, $3, $5); }
+    ;
 
 
 
@@ -193,7 +196,7 @@
     /* TODO(grantho): EXPR: until CASE */
 
     dummy_expr :
-    { $$ = nil_Expressions(); };
+    { $$ = no_expr(); };
     /* TODO(veni): EXPR: from NEW onwards */   
 
     
