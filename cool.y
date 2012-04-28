@@ -133,10 +133,15 @@
     %type <program> program
     %type <classes> class_list
     %type <class_> class
+
     
-    /* You will want to change the following line. */
-    %type <features> dummy_feature_list
-    
+    %type <features> feature_list
+    %type <feature> feature
+
+    %type <formals> dummy_formal_list
+
+    %type <expr> dummy_expr
+
     /* Precedence declarations go here. */
     
     
@@ -155,16 +160,40 @@
     ;
     
     /* If no parent is specified, the class inherits from the Object class. */
-    class	: CLASS TYPEID '{' dummy_feature_list '}' ';'
+    class	: CLASS TYPEID '{' feature_list '}' ';'
     { $$ = class_($2,idtable.add_string("Object"),$4,
     stringtable.add_string(curr_filename)); }
-    | CLASS TYPEID INHERITS TYPEID '{' dummy_feature_list '}' ';'
+    | CLASS TYPEID INHERITS TYPEID '{' feature_list '}' ';'
     { $$ = class_($2,$4,$6,stringtable.add_string(curr_filename)); }
     ;
-    
-    /* Feature list may be empty, but no empty features in list. */
-    dummy_feature_list:		/* empty */
-    {  $$ = nil_Features(); }
+
+    /* TODO(veni): Features */
+    feature_list
+    : feature /* single feature */
+    { $$ = single_Features($1);
+    parse_results = $$; }
+    | feature_list feature /* several features */
+    { $$ = append_Features($1, single_Features($2));
+    parse_results = $$; }
+    | { $$ = nil_Features(); }
+    ;
+
+
+    feature : OBJECTID '(' dummy_formal_list ')' ':' TYPEID '{' dummy_expr '}'
+    { $$ = method_($1, $3, $6,$8); };
+
+
+
+    /* TODO(veni): Formal */
+    dummy_formal_list :
+    { $$ = nil_Formals(); };
+
+    /* TODO(grantho): EXPR: until CASE */
+
+    dummy_expr :
+    { $$ = nil_Expressions(); };
+    /* TODO(veni): EXPR: from NEW onwards */   
+
     
     
     /* end of grammar */
