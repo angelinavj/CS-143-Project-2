@@ -240,14 +240,14 @@
     | expr '@' TYPEID '.' OBJECTID '(' expr_comma_list ')'
     { $$ = static_dispatch($1, $3, $5, $7); }
     | OBJECTID '(' expr_comma_list ')' 
-    { /* TODO - self dispatch!!! */}
+    { $$ = dispatch(object(idtable.add_string("self")), $1, $3); }
     | IF expr THEN expr ELSE expr FI
     { $$ = cond ($2, $4, $6); }
     | WHILE expr LOOP expr POOL 
     { $$ = loop($2, $4); }
     | '{' expr_list '}'
     { $$ = block($2); }
-    | LET OBJECTID ':' TYPEID in expr
+    | LET OBJECTID ':' TYPEID IN expr
     { /* TODO - nested let bindings... wtf??!?! */ }
     | CASE expr OF case_list ESAC
     { $$ = typcase($2, $4); }
