@@ -138,9 +138,11 @@
     %type <features> feature_list
     %type <feature> feature
 
-    %type <formals> dummy_formal_list
+    %type <formals> formal_list
+    %type <formal> formal
 
-    %type <expression> dummy_expr
+    %type <expressions> expr_list
+    %type <expression> expr
 
     /* Precedence declarations go here. */
     
@@ -167,35 +169,56 @@
     { $$ = class_($2,$4,$6,stringtable.add_string(curr_filename)); }
     ;
 
-    /* TODO(veni): Features */
     feature_list
     : { $$ = nil_Features(); }
-    | feature /* single feature  */
+    | feature ';' /* single feature  */
     { $$ = single_Features($1); }
-    | feature_list feature   /*several features */
+    | feature_list feature ';'   /*several features */
     { $$ = append_Features($1, single_Features($2));}
     ;
 
     feature :
-    OBJECTID '(' dummy_formal_list ')' ':' TYPEID '{' dummy_expr '}'
+    OBJECTID '(' formal_list ')' ':' TYPEID '{' expr '}'
     { $$ = method($1, $3, $6, $8); }
-     | OBJECTID ':' TYPEID dummy_expr
+     | OBJECTID ':' TYPEID expr
     { $$ = attr($1, $3, $4); }
-    | OBJECTID ':' TYPEID ASSIGN dummy_expr
+    | OBJECTID ':' TYPEID ASSIGN expr
     { $$ = attr($1, $3, $5); }
     ;
 
 
+    formal_list :
+    formal
+    { $$ = single_Formals($1); }
+    | formal_list ',' formal
+    { $$ = append_Formals($1, single_Formals($3)); }
+    ;
 
-    /* TODO(veni): Formal */
-    dummy_formal_list :
-    { $$ = nil_Formals(); };
+    formal:
+    OBJECTID ':' TYPEID
+    { $$ = formal($1, $3); }
+    ;
+
+
+    expr : 
+    { $$ = no_expr(); };
+
+
+    expr_list :
+    { $$ = nil_Expressions(); };
+    /* TODO (veni): handle semicolons.  This is still buggy
+    expr_list :
+    { $$ = nil_Expressions(); }
+    | expr
+    { $$ = single_Expressions($1); }
+    | expr_list ';' expr
+    { $$ = append_Expressions ($1, single_Expressions($3));}
+    ;*/
 
     /* TODO(grantho): EXPR: until CASE */
-
-    dummy_expr :
-    { $$ = no_expr(); };
     /* TODO(veni): EXPR: from NEW onwards */   
+
+
 
     
     
