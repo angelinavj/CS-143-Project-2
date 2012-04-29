@@ -154,9 +154,11 @@
     program	: class_list	{ @$ = @1; ast_root = program($1); }
     ;
     
-    class_list : class			/* single class */
-    { $$ = single_Classes($1); parse_results = $$; }
-    | class_list class	/* several classes */
+    class_list
+    : class ';'			/* single class */
+    { $$ = single_Classes($1);
+    parse_results = $$; }
+    | class_list class ';'	/* several classes */
     { $$ = append_Classes($1,single_Classes($2)); 
     parse_results = $$; }
     ;
