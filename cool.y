@@ -177,17 +177,23 @@
     ;
     
     /* If no parent is specified, the class inherits from the Object class. */
-    class	: CLASS TYPEID '{' feature_list '}'
+    class	
+    :
+    CLASS TYPEID '{' feature_list '}'
     { $$ = class_($2,idtable.add_string("Object"),$4,
     stringtable.add_string(curr_filename)); }
     | CLASS TYPEID INHERITS TYPEID '{' feature_list '}'
     { $$ = class_($2,$4,$6,stringtable.add_string(curr_filename)); }
+    | CLASS TYPEID '{' '}'
+    { $$ = class_($2,idtable.add_string("Object"),nil_Features(),
+    stringtable.add_string(curr_filename)); }
+    | CLASS TYPEID INHERITS TYPEID '{' '}'
+    { $$ = class_($2,$4,nil_Features(),stringtable.add_string(curr_filename)); }
     ;
 
     feature_list
-    : 
-    /* { $$ = nil_Features(); }
-    | */ feature ';' /* single feature  */
+    :
+    feature ';' /* single feature  */
     { $$ = single_Features($1); }
     | feature_list feature ';'   /*several features */
     { $$ = append_Features($1, single_Features($2));}
@@ -196,8 +202,8 @@
     feature :
     OBJECTID '(' formal_list ')' ':' TYPEID '{' expr '}'
     { $$ = method($1, $3, $6, $8); }
-     | OBJECTID ':' TYPEID expr
-    { $$ = attr($1, $3, $4); }
+     | OBJECTID ':' TYPEID
+    { $$ = attr($1, $3, no_expr()); }
     | OBJECTID ':' TYPEID ASSIGN expr
     { $$ = attr($1, $3, $5); }
     ;
@@ -233,8 +239,7 @@
    
 
     expr : 
-    /*{ $$ = no_expr(); } /* TODO(veni, grantho) : do we still need this? 
-    | */OBJECTID ASSIGN expr
+    OBJECTID ASSIGN expr
     { $$ = assign($1, $3); }
     /* dispatch */
     | expr '.' OBJECTID '(' expr_comma_list ')'
