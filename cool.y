@@ -141,7 +141,8 @@
     %type <formals> formal_list
     %type <formal> formal
 
-    %type <expression> dummy_expr
+    %type <expressions> expr_list
+    %type <expression> expr
 
     /* Precedence declarations go here. */
     
@@ -179,11 +180,11 @@
     ;
 
     feature :
-    OBJECTID '(' formal_list ')' ':' TYPEID '{' dummy_expr '}'
+    OBJECTID '(' formal_list ')' ':' TYPEID '{' expr '}'
     { $$ = method($1, $3, $6, $8); }
-     | OBJECTID ':' TYPEID dummy_expr
+     | OBJECTID ':' TYPEID expr
     { $$ = attr($1, $3, $4); }
-    | OBJECTID ':' TYPEID ASSIGN dummy_expr
+    | OBJECTID ':' TYPEID ASSIGN expr
     { $$ = attr($1, $3, $5); }
     ;
 
@@ -193,17 +194,33 @@
     { $$ = single_Formals($1); }
     | formal_list ',' formal
     { $$ = append_Formals($1, single_Formals($3)); }
-
+    ;
 
     formal:
     OBJECTID ':' TYPEID
     { $$ = formal($1, $3); }
+    ;
+
+
+    expr : 
+    { $$ = no_expr(); };
+
+
+    expr_list :
+    { $$ = nil_Expressions(); };
+    /* TODO (veni): handle semicolons.  This is still buggy
+    expr_list :
+    { $$ = nil_Expressions(); }
+    | expr
+    { $$ = single_Expressions($1); }
+    | expr_list ';' expr
+    { $$ = append_Expressions ($1, single_Expressions($3));}
+    ;*/
 
     /* TODO(grantho): EXPR: until CASE */
-
-    dummy_expr :
-    { $$ = no_expr(); };
     /* TODO(veni): EXPR: from NEW onwards */   
+
+
 
     
     

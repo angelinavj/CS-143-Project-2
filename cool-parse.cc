@@ -589,8 +589,8 @@ static const yytype_int8 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,   153,   153,   157,   160,   166,   169,   174,   175,   177,
-     182,   184,   186,   192,   194,   199,   205
+       0,   154,   154,   158,   161,   167,   170,   175,   176,   178,
+     183,   185,   187,   193,   195,   200,   206
 };
 #endif
 
@@ -604,8 +604,7 @@ static const char *const yytname[] =
   "DARROW", "NEW", "ISVOID", "STR_CONST", "INT_CONST", "BOOL_CONST",
   "TYPEID", "OBJECTID", "ASSIGN", "NOT", "LE", "ERROR", "'{'", "'}'",
   "';'", "'('", "')'", "':'", "','", "$accept", "program", "class_list",
-  "class", "feature_list", "feature", "formal_list", "formal",
-  "dummy_expr", 0
+  "class", "feature_list", "feature", "formal_list", "formal", "expr", 0
 };
 #endif
 
@@ -1546,14 +1545,14 @@ yyreduce:
         case 2:
 
 /* Line 1455 of yacc.c  */
-#line 153 "cool.y"
+#line 154 "cool.y"
     { (yyloc) = (yylsp[(1) - (1)]); ast_root = program((yyvsp[(1) - (1)].classes)); }
     break;
 
   case 3:
 
 /* Line 1455 of yacc.c  */
-#line 158 "cool.y"
+#line 159 "cool.y"
     { (yyval.classes) = single_Classes((yyvsp[(1) - (1)].class_));
     parse_results = (yyval.classes); }
     break;
@@ -1561,7 +1560,7 @@ yyreduce:
   case 4:
 
 /* Line 1455 of yacc.c  */
-#line 161 "cool.y"
+#line 162 "cool.y"
     { (yyval.classes) = append_Classes((yyvsp[(1) - (2)].classes),single_Classes((yyvsp[(2) - (2)].class_))); 
     parse_results = (yyval.classes); }
     break;
@@ -1569,7 +1568,7 @@ yyreduce:
   case 5:
 
 /* Line 1455 of yacc.c  */
-#line 167 "cool.y"
+#line 168 "cool.y"
     { (yyval.class_) = class_((yyvsp[(2) - (5)].symbol),idtable.add_string("Object"),(yyvsp[(4) - (5)].features),
     stringtable.add_string(curr_filename)); }
     break;
@@ -1577,84 +1576,84 @@ yyreduce:
   case 6:
 
 /* Line 1455 of yacc.c  */
-#line 170 "cool.y"
+#line 171 "cool.y"
     { (yyval.class_) = class_((yyvsp[(2) - (7)].symbol),(yyvsp[(4) - (7)].symbol),(yyvsp[(6) - (7)].features),stringtable.add_string(curr_filename)); }
     break;
 
   case 7:
 
 /* Line 1455 of yacc.c  */
-#line 174 "cool.y"
+#line 175 "cool.y"
     { (yyval.features) = nil_Features(); }
     break;
 
   case 8:
 
 /* Line 1455 of yacc.c  */
-#line 176 "cool.y"
+#line 177 "cool.y"
     { (yyval.features) = single_Features((yyvsp[(1) - (2)].feature)); }
     break;
 
   case 9:
 
 /* Line 1455 of yacc.c  */
-#line 178 "cool.y"
+#line 179 "cool.y"
     { (yyval.features) = append_Features((yyvsp[(1) - (3)].features), single_Features((yyvsp[(2) - (3)].feature)));}
     break;
 
   case 10:
 
 /* Line 1455 of yacc.c  */
-#line 183 "cool.y"
+#line 184 "cool.y"
     { (yyval.feature) = method((yyvsp[(1) - (9)].symbol), (yyvsp[(3) - (9)].formals), (yyvsp[(6) - (9)].symbol), (yyvsp[(8) - (9)].expression)); }
     break;
 
   case 11:
 
 /* Line 1455 of yacc.c  */
-#line 185 "cool.y"
+#line 186 "cool.y"
     { (yyval.feature) = attr((yyvsp[(1) - (4)].symbol), (yyvsp[(3) - (4)].symbol), (yyvsp[(4) - (4)].expression)); }
     break;
 
   case 12:
 
 /* Line 1455 of yacc.c  */
-#line 187 "cool.y"
+#line 188 "cool.y"
     { (yyval.feature) = attr((yyvsp[(1) - (5)].symbol), (yyvsp[(3) - (5)].symbol), (yyvsp[(5) - (5)].expression)); }
     break;
 
   case 13:
 
 /* Line 1455 of yacc.c  */
-#line 193 "cool.y"
+#line 194 "cool.y"
     { (yyval.formals) = single_Formals((yyvsp[(1) - (1)].formal)); }
     break;
 
   case 14:
 
 /* Line 1455 of yacc.c  */
-#line 195 "cool.y"
+#line 196 "cool.y"
     { (yyval.formals) = append_Formals((yyvsp[(1) - (3)].formals), single_Formals((yyvsp[(3) - (3)].formal))); }
     break;
 
   case 15:
 
 /* Line 1455 of yacc.c  */
-#line 200 "cool.y"
+#line 201 "cool.y"
     { (yyval.formal) = formal((yyvsp[(1) - (3)].symbol), (yyvsp[(3) - (3)].symbol)); }
     break;
 
   case 16:
 
 /* Line 1455 of yacc.c  */
-#line 205 "cool.y"
+#line 206 "cool.y"
     { (yyval.expression) = no_expr(); }
     break;
 
 
 
 /* Line 1455 of yacc.c  */
-#line 1658 "cool.tab.c"
+#line 1657 "cool.tab.c"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -1873,7 +1872,7 @@ yyreturn:
 
 
 /* Line 1675 of yacc.c  */
-#line 211 "cool.y"
+#line 228 "cool.y"
 
     
     /* This function is called automatically when Bison detects a parse error. */
