@@ -124,6 +124,8 @@
     
     /*  DON'T CHANGE ANYTHING ABOVE THIS LINE, OR YOUR PARSER WONT WORK       */
     /**************************************************************************/
+    %left '.'
+    %left '@'
     %left '~'
     %left ISVOID
     %left '*' '/'
