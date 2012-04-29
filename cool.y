@@ -142,6 +142,7 @@
     %type <formal> formal
 
     %type <expressions> expr_list
+    %type <expressions> expr_comma_list
     %type <expression> expr
 
     %type <cases> case_list
@@ -204,21 +205,41 @@
     { $$ = formal($1, $3); }
     ;
 
-    expr_list :
-    { $$ = nil_Expressions(); } ;
-    | expr ';'
+    expr_list 
+    : expr ';'
     { $$ = single_Expressions($1); }
-    | expr ';' expr_list
-    { $$ = append_Expressions(single_Expressions($1), $3);}
+    | expr_list expr ';'
+    { $$ = append_Expressions($1, single_Expressions($2)); }
     ;
+
+    expr_comma_list 
+    : /* no expressions*/ 
+    { $$ = single_Expressions(no_expr()); }
+    | expr 
+    { $$ = single_Expressions($1); }
+    | expr_comma_list ',' expr
+    { $$ = append_Expressions($1, single_Expressions($3)); }
+    ;
+   
 
     expr : 
     { $$ = no_expr(); } /* TODO(veni, grantho) : do we still need this? */
     | OBJECTID ASSIGN expr
     { $$ = assign($1, $3); }
+    /* dispatch */
+    | expr '.' OBJECTID '(' expr_comma_list ')'
+    { $$ = dispatch($1, $3, $5); }
+    | expr '@' TYPEID '.' OBJECTID '(' expr_comma_list ')'
+    { $$ = static_dispatch($1, $3, $5, $7); }
+    | OBJECTID '(' expr_comma_list ')' 
+    { /* TODO - self dispatch!!! */}
+    | IF expr THEN expr ELSE expr FI
+    { $$ = cond ($2, $4, $6); }
+    | WHILE expr LOOP expr POOL 
+    { $$ = loop($2, $4); }
     | '{' expr_list '}'
     { $$ = block($2); }
-
+    
     | CASE expr OF case_list ESAC
     { $$ = typcase($2, $4); }
     | NEW TYPEID
