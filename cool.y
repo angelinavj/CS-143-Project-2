@@ -124,7 +124,14 @@
     
     /*  DON'T CHANGE ANYTHING ABOVE THIS LINE, OR YOUR PARSER WONT WORK       */
     /**************************************************************************/
-    
+    %left '~'
+    %left ISVOID
+    %left '*' '/'
+    %left '+' '-'
+    %nonassoc LE '<' '='
+    %left NOT
+    %right ASSIGN
+
     /* Complete the nonterminal list below, giving a type for the semantic
     value of each non terminal. (See section 3.6 in the bison 
     documentation for details). */
@@ -175,8 +182,9 @@
     ;
 
     feature_list
-    : { $$ = nil_Features(); }
-    | feature ';' /* single feature  */
+    : 
+    /* { $$ = nil_Features(); }
+    | */ feature ';' /* single feature  */
     { $$ = single_Features($1); }
     | feature_list feature ';'   /*several features */
     { $$ = append_Features($1, single_Features($2));}
@@ -205,13 +213,25 @@
     ;
 
     expr : 
-    { $$ = no_expr(); } /* TODO(veni, grantho) : do we still need this? */
+    { $$ = no_expr(); } 
     | CASE expr OF case_list ESAC
     { $$ = typcase($2, $4); }
+    | NOT expr
+    { $$ = neg($2); } 
     | NEW TYPEID
     { $$ = new_($2); }
     | ISVOID expr
     { $$ = isvoid($2); }
+    | '(' expr ')'
+    { $$ = $2; }
+    | OBJECTID
+    { $$ = object($1); }
+    | INT_CONST
+    { $$ = int_const($1); }
+    | STR_CONST
+    { $$ = string_const($1); }
+    | BOOL_CONST
+    { $$ = bool_const($1); }
     | expr '+' expr
     { $$ = plus($1, $3); }
     | expr '-' expr
@@ -227,20 +247,7 @@
     | expr LE expr
     { $$ = leq($1, $3); }
     | expr '=' expr
-    { $$ = eq($1, $3); }
-    | NOT expr
-    { $$ = neg($2); }
-    | '(' expr ')'
-    { $$ = $2; }
-    | OBJECTID
-    { $$ = object($1); }
-    | INT_CONST
-    { $$ = int_const($1); }
-    | STR_CONST
-    { $$ = string_const($1); }
-    | BOOL_CONST
-    { $$ = bool_const($1); }
-    ; 
+    { $$ = eq($1, $3); };
 
     case_list :
     case
