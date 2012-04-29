@@ -149,6 +149,7 @@
     %type <formal> formal
 
     %type <expressions> expr_list
+    %type <expressions> expr_comma_list
     %type <expression> expr
 
     %type <cases> case_list
@@ -212,8 +213,42 @@
     { $$ = formal($1, $3); }
     ;
 
+    expr_list 
+    : expr ';'
+    { $$ = single_Expressions($1); }
+    | expr_list expr ';'
+    { $$ = append_Expressions($1, single_Expressions($2)); }
+    ;
+
+    expr_comma_list 
+    : /* no expressions*/ 
+    { $$ = single_Expressions(no_expr()); }
+    | expr 
+    { $$ = single_Expressions($1); }
+    | expr_comma_list ',' expr
+    { $$ = append_Expressions($1, single_Expressions($3)); }
+    ;
+   
+
     expr : 
-    { $$ = no_expr(); } 
+    { $$ = no_expr(); } /* TODO(veni, grantho) : do we still need this? */
+    | OBJECTID ASSIGN expr
+    { $$ = assign($1, $3); }
+    /* dispatch */
+    | expr '.' OBJECTID '(' expr_comma_list ')'
+    { $$ = dispatch($1, $3, $5); }
+    | expr '@' TYPEID '.' OBJECTID '(' expr_comma_list ')'
+    { $$ = static_dispatch($1, $3, $5, $7); }
+    | OBJECTID '(' expr_comma_list ')' 
+    { /* TODO - self dispatch!!! */}
+    | IF expr THEN expr ELSE expr FI
+    { $$ = cond ($2, $4, $6); }
+    | WHILE expr LOOP expr POOL 
+    { $$ = loop($2, $4); }
+    | '{' expr_list '}'
+    { $$ = block($2); }
+    | LET OBJECTID ':' TYPEID in expr
+    { /* TODO - nested let bindings... wtf??!?! */ }
     | CASE expr OF case_list ESAC
     { $$ = typcase($2, $4); }
     | NOT expr
@@ -261,27 +296,8 @@
     OBJECTID ':' TYPEID ASSIGN expr ';'
     { $$ = branch($1, $3, $5); }
     ;
-
-
-    expr_list :
-    { $$ = nil_Expressions(); }
-
-    /* TODO (veni): handle semicolons.  This is still buggy
-    expr_list :
-    { $$ = nil_Expressions(); }
-    | expr
-    { $$ = single_Expressions($1); }
-    | expr_list ';' expr
-    { $$ = append_Expressions ($1, single_Expressions($3));}
-    ;*/
-
-    /* TODO(grantho): EXPR: until CASE */
-
-
-
     
-    
-    /* end of grammar */
+    /* End of grammar */
     %%
     
     /* This function is called automatically when Bison detects a parse error. */
