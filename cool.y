@@ -172,9 +172,9 @@
     /* TODO(veni): Features */
     feature_list
     : { $$ = nil_Features(); }
-    | feature /* single feature  */
+    | feature ';' /* single feature  */
     { $$ = single_Features($1); }
-    | feature_list feature   /*several features */
+    | feature_list feature ';'   /*several features */
     { $$ = append_Features($1, single_Features($2));}
     ;
 
