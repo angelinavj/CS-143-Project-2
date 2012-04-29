@@ -230,7 +230,7 @@
 
     expr_comma_list 
     : /* no expressions*/ 
-    { $$ = single_Expressions(no_expr()); }
+    { $$ = nil_Expressions(); }
     | expr 
     { $$ = single_Expressions($1); }
     | expr_comma_list ',' expr
