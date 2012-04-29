@@ -138,7 +138,8 @@
     %type <features> feature_list
     %type <feature> feature
 
-    %type <formals> dummy_formal_list
+    %type <formals> formal_list
+    %type <formal> formal
 
     %type <expression> dummy_expr
 
@@ -169,7 +170,6 @@
     { $$ = class_($2,$4,$6,stringtable.add_string(curr_filename)); }
     ;
 
-    /* TODO(veni): Features */
     feature_list
     : { $$ = nil_Features(); }
     | feature ';' /* single feature  */
@@ -179,7 +179,7 @@
     ;
 
     feature :
-    OBJECTID '(' dummy_formal_list ')' ':' TYPEID '{' dummy_expr '}'
+    OBJECTID '(' formal_list ')' ':' TYPEID '{' dummy_expr '}'
     { $$ = method($1, $3, $6, $8); }
      | OBJECTID ':' TYPEID dummy_expr
     { $$ = attr($1, $3, $4); }
@@ -188,10 +188,16 @@
     ;
 
 
+    formal_list :
+    formal
+    { $$ = single_Formals($1); }
+    | formal_list ',' formal
+    { $$ = append_Formals($1, single_Formals($3)); }
 
-    /* TODO(veni): Formal */
-    dummy_formal_list :
-    { $$ = nil_Formals(); };
+
+    formal:
+    OBJECTID ':' TYPEID
+    { $$ = formal($1, $3); }
 
     /* TODO(grantho): EXPR: until CASE */
 
