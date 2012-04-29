@@ -222,7 +222,7 @@
 
     expr_comma_list 
     : /* no expressions*/ 
-    { $$ = single_Expressions(no_expr()); }
+    { $$ = nil_Expressions(); }
     | expr 
     { $$ = single_Expressions($1); }
     | expr_comma_list ',' expr
@@ -231,8 +231,7 @@
    
 
     expr : 
-    { $$ = no_expr(); } /* TODO(veni, grantho) : do we still need this? */
-    | OBJECTID ASSIGN expr
+    OBJECTID ASSIGN expr
     { $$ = assign($1, $3); }
     /* dispatch */
     | expr '.' OBJECTID '(' expr_comma_list ')'
