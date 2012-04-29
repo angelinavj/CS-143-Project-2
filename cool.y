@@ -144,6 +144,9 @@
     %type <expressions> expr_list
     %type <expression> expr
 
+    %type <cases> case_list
+    %type <case_> case
+
     /* Precedence declarations go here. */
     
     
@@ -201,13 +204,61 @@
     { $$ = formal($1, $3); }
     ;
 
-
     expr : 
-    { $$ = no_expr(); };
+    { $$ = no_expr(); } /* TODO(veni, grantho) : do we still need this? */
+    | CASE expr OF case_list ESAC
+    { $$ = typcase($2, $4); }
+    | NEW TYPEID
+    { $$ = new_($2); }
+    | ISVOID expr
+    { $$ = isvoid($2); }
+    | expr '+' expr
+    { $$ = plus($1, $3); }
+    | expr '-' expr
+    { $$ = sub($1, $3); }
+    | expr '*' expr
+    { $$ = mul($1, $3); }
+    | expr '/' expr
+    { $$ = divide($1, $3); }
+    | '~' expr
+    { $$ = comp($2); }
+    | expr '<' expr
+    { $$ = lt($1, $3); } 
+    | expr LE expr
+    { $$ = leq($1, $3); }
+    | expr '=' expr
+    { $$ = eq($1, $3); }
+    | NOT expr
+    { $$ = neg($2); }
+    | '(' expr ')'
+    { $$ = $2; }
+    | OBJECTID
+    { $$ = object($1); }
+    | INT_CONST
+    { $$ = int_const($1); }
+    | STR_CONST
+    { $$ = string_const($1); }
+    | BOOL_CONST
+    { $$ = bool_const($1); }
+    ; 
+
+    case_list :
+    case
+    { $$ = single_Cases($1); }
+    |
+    case_list case
+    { $$ = append_Cases($1, single_Cases($2)); }
+    ;
+
+    case :
+    OBJECTID ':' TYPEID ASSIGN expr ';'
+    { $$ = branch($1, $3, $5); }
+    ;
 
 
     expr_list :
-    { $$ = nil_Expressions(); };
+    { $$ = nil_Expressions(); }
+
     /* TODO (veni): handle semicolons.  This is still buggy
     expr_list :
     { $$ = nil_Expressions(); }
@@ -218,7 +269,6 @@
     ;*/
 
     /* TODO(grantho): EXPR: until CASE */
-    /* TODO(veni): EXPR: from NEW onwards */   
 
 
 

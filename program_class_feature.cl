@@ -1,3 +1,3 @@
 class A inherits B {
-  abc : Int;
+  abc : Int <- new C;
 };
