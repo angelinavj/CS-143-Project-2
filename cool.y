@@ -239,7 +239,8 @@
     { $$ = loop($2, $4); }
     | '{' expr_list '}'
     { $$ = block($2); }
-    
+    | LET OBJECTID ':' TYPEID in expr
+    { /* TODO - nested let bindings... wtf??!?! */ }
     | CASE expr OF case_list ESAC
     { $$ = typcase($2, $4); }
     | NEW TYPEID
