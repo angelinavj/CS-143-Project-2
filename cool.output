@@ -1,8 +1,3 @@
-Nonterminals useless in grammar
-
-   expr_list
-
-
 Terminals unused in grammar
 
    ELSE
@@ -26,11 +21,6 @@ Terminals unused in grammar
    NOT
    LE
    ERROR
-
-
-Rules useless in grammar
-
-   16 expr_list: /* empty */
 
 
 State 10 conflicts: 1 shift/reduce
@@ -62,7 +52,10 @@ Grammar
 
    14 formal: OBJECTID ':' TYPEID
 
-   15 expr: /* empty */
+   15 expr_list: /* empty */
+
+   16 expr: OBJECTID ASSIGN expr
+   17     | '{' expr_list '}'
 
 
 Terminals, with rules where they appear
@@ -73,8 +66,8 @@ $end (0) 0
 ',' (44) 13
 ':' (58) 9 10 11 14
 ';' (59) 2 3 7 8
-'{' (123) 4 5 9
-'}' (125) 4 5 9
+'{' (123) 4 5 9 17
+'}' (125) 4 5 9 17
 error (256)
 CLASS (258) 4 5
 ELSE (259)
@@ -97,8 +90,8 @@ STR_CONST (275)
 INT_CONST (276)
 BOOL_CONST (277)
 TYPEID (278) 4 5 9 10 11 14
-OBJECTID (279) 9 10 11 14
-ASSIGN (280) 11
+OBJECTID (279) 9 10 11 14 16
+ASSIGN (280) 11 16
 NOT (281)
 LE (282)
 ERROR (283)
@@ -122,8 +115,10 @@ formal_list (42)
     on left: 12 13, on right: 9 13
 formal (43)
     on left: 14, on right: 12 13
-expr (44)
-    on left: 15, on right: 9 10 11
+expr_list (44)
+    on left: 15, on right: 17
+expr (45)
+    on left: 16 17, on right: 9 10 11 16
 
 
 state 0
@@ -354,11 +349,11 @@ state 26
    10 feature: OBJECTID ':' TYPEID . expr
    11        | OBJECTID ':' TYPEID . ASSIGN expr
 
-    ASSIGN  shift, and go to state 32
+    OBJECTID  shift, and go to state 32
+    ASSIGN    shift, and go to state 33
+    '{'       shift, and go to state 34
 
-    $default  reduce using rule 15 (expr)
-
-    expr  go to state 33
+    expr  go to state 35
 
 
 state 27
@@ -379,14 +374,14 @@ state 29
 
    14 formal: OBJECTID ':' . TYPEID
 
-    TYPEID  shift, and go to state 34
+    TYPEID  shift, and go to state 36
 
 
 state 30
 
     9 feature: OBJECTID '(' formal_list ')' . ':' TYPEID '{' expr '}'
 
-    ':'  shift, and go to state 35
+    ':'  shift, and go to state 37
 
 
 state 31
@@ -395,77 +390,126 @@ state 31
 
     OBJECTID  shift, and go to state 23
 
-    formal  go to state 36
+    formal  go to state 38
 
 
 state 32
 
-   11 feature: OBJECTID ':' TYPEID ASSIGN . expr
+   16 expr: OBJECTID . ASSIGN expr
 
-    $default  reduce using rule 15 (expr)
-
-    expr  go to state 37
+    ASSIGN  shift, and go to state 39
 
 
 state 33
+
+   11 feature: OBJECTID ':' TYPEID ASSIGN . expr
+
+    OBJECTID  shift, and go to state 32
+    '{'       shift, and go to state 34
+
+    expr  go to state 40
+
+
+state 34
+
+   17 expr: '{' . expr_list '}'
+
+    $default  reduce using rule 15 (expr_list)
+
+    expr_list  go to state 41
+
+
+state 35
 
    10 feature: OBJECTID ':' TYPEID expr .
 
     $default  reduce using rule 10 (feature)
 
 
-state 34
+state 36
 
    14 formal: OBJECTID ':' TYPEID .
 
     $default  reduce using rule 14 (formal)
 
 
-state 35
+state 37
 
     9 feature: OBJECTID '(' formal_list ')' ':' . TYPEID '{' expr '}'
 
-    TYPEID  shift, and go to state 38
+    TYPEID  shift, and go to state 42
 
 
-state 36
+state 38
 
    13 formal_list: formal_list ',' formal .
 
     $default  reduce using rule 13 (formal_list)
 
 
-state 37
+state 39
+
+   16 expr: OBJECTID ASSIGN . expr
+
+    OBJECTID  shift, and go to state 32
+    '{'       shift, and go to state 34
+
+    expr  go to state 43
+
+
+state 40
 
    11 feature: OBJECTID ':' TYPEID ASSIGN expr .
 
     $default  reduce using rule 11 (feature)
 
 
-state 38
+state 41
+
+   17 expr: '{' expr_list . '}'
+
+    '}'  shift, and go to state 44
+
+
+state 42
 
     9 feature: OBJECTID '(' formal_list ')' ':' TYPEID . '{' expr '}'
 
-    '{'  shift, and go to state 39
+    '{'  shift, and go to state 45
 
 
-state 39
+state 43
+
+   16 expr: OBJECTID ASSIGN expr .
+
+    $default  reduce using rule 16 (expr)
+
+
+state 44
+
+   17 expr: '{' expr_list '}' .
+
+    $default  reduce using rule 17 (expr)
+
+
+state 45
 
     9 feature: OBJECTID '(' formal_list ')' ':' TYPEID '{' . expr '}'
 
-    $default  reduce using rule 15 (expr)
+    OBJECTID  shift, and go to state 32
+    '{'       shift, and go to state 34
 
-    expr  go to state 40
+    expr  go to state 46
 
 
-state 40
+state 46
 
     9 feature: OBJECTID '(' formal_list ')' ':' TYPEID '{' expr . '}'
 
-    '}'  shift, and go to state 41
+    '}'  shift, and go to state 47
 
 
-state 41
+state 47
 
     9 feature: OBJECTID '(' formal_list ')' ':' TYPEID '{' expr '}' .
 

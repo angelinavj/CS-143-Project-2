@@ -201,21 +201,21 @@
     { $$ = formal($1, $3); }
     ;
 
-
-    expr : 
-    { $$ = no_expr(); };
-
-
     expr_list :
-    { $$ = nil_Expressions(); };
-    /* TODO (veni): handle semicolons.  This is still buggy
-    expr_list :
-    { $$ = nil_Expressions(); }
-    | expr
+    { $$ = nil_Expressions(); } ;
+/*
+    | expr ';'
     { $$ = single_Expressions($1); }
-    | expr_list ';' expr
-    { $$ = append_Expressions ($1, single_Expressions($3));}
-    ;*/
+    | expr_list ';' expr ';'
+    { $$ = append_Expressions($1, single_Expressions($3));}
+    ;
+*/
+    expr :
+    OBJECTID ASSIGN expr
+    { $$ = assign($1, $3); }
+    | '{' expr_list '}'
+    { $$ = block(expr_list); }
+    ;
 
     /* TODO(grantho): EXPR: until CASE */
     /* TODO(veni): EXPR: from NEW onwards */   
