@@ -1862,7 +1862,7 @@ yyreduce:
 
 /* Line 1455 of yacc.c  */
 #line 273 "cool.y"
-    { (yyval.expression) = block(expr_list); }
+    { (yyval.expression) = block((yyvsp[(2) - (3)].expressions)); }
     break;
 
 
@@ -2087,7 +2087,7 @@ yyreturn:
 
 
 /* Line 1675 of yacc.c  */
-#line 283 "cool.y"
+#line 282 "cool.y"
 
     
     /* This function is called automatically when Bison detects a parse error. */

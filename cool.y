@@ -204,8 +204,21 @@
     { $$ = formal($1, $3); }
     ;
 
+    expr_list :
+    { $$ = nil_Expressions(); } ;
+    | expr ';'
+    { $$ = single_Expressions($1); }
+    | expr ';' expr_list
+    { $$ = append_Expressions(single_Expressions($1), $3);}
+    ;
+
     expr : 
     { $$ = no_expr(); } /* TODO(veni, grantho) : do we still need this? */
+    | OBJECTID ASSIGN expr
+    { $$ = assign($1, $3); }
+    | '{' expr_list '}'
+    { $$ = block($2); }
+
     | CASE expr OF case_list ESAC
     { $$ = typcase($2, $4); }
     | NEW TYPEID
@@ -254,32 +267,8 @@
     OBJECTID ':' TYPEID ASSIGN expr ';'
     { $$ = branch($1, $3, $5); }
     ;
-
-
-    expr_list :
-    { $$ = nil_Expressions(); }
-
-/*
-    | expr ';'
-    { $$ = single_Expressions($1); }
-    | expr_list ';' expr ';'
-    { $$ = append_Expressions($1, single_Expressions($3));}
-    ;
-*/
-    expr :
-    OBJECTID ASSIGN expr
-    { $$ = assign($1, $3); }
-    | '{' expr_list '}'
-    { $$ = block(expr_list); }
-    ;
-
-    /* TODO(grantho): EXPR: until CASE */
-
-
-
     
-    
-    /* end of grammar */
+    /* End of grammar */
     %%
     
     /* This function is called automatically when Bison detects a parse error. */
