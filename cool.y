@@ -153,6 +153,7 @@
     %type <expressions> expr_list
     %type <expressions> expr_comma_list
     %type <expression> expr
+    %type <expression> initialization
 
     %type <cases> case_list
     %type <case_> case
@@ -232,6 +233,13 @@
     ;
    
 
+    initialization
+    : /* no initialization */
+    { $$ = no_expr(); }
+    | ASSIGN expr 
+    { $$ = $2; }
+    ;
+
     expr : 
     OBJECTID ASSIGN expr
     { $$ = assign($1, $3); }
@@ -242,14 +250,15 @@
     { $$ = static_dispatch($1, $3, $5, $7); }
     | OBJECTID '(' expr_comma_list ')' 
     { $$ = dispatch(object(idtable.add_string("self")), $1, $3); }
+    /* end of dispatch */ 
     | IF expr THEN expr ELSE expr FI
     { $$ = cond ($2, $4, $6); }
     | WHILE expr LOOP expr POOL 
     { $$ = loop($2, $4); }
     | '{' expr_list '}'
     { $$ = block($2); }
-    | LET OBJECTID ':' TYPEID IN expr
-    { /* TODO - nested let bindings... wtf??!?! */ }
+    | LET OBJECTID ':' TYPEID initialization IN expr
+    { $$ = let($2, $4, $5, $7); }
     | CASE expr OF case_list ESAC
     { $$ = typcase($2, $4); }
     | NOT expr
