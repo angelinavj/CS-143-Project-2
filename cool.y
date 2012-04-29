@@ -124,6 +124,8 @@
     
     /*  DON'T CHANGE ANYTHING ABOVE THIS LINE, OR YOUR PARSER WONT WORK       */
     /**************************************************************************/
+    %left '.'
+    %left '@'
     %left '~'
     %left ISVOID
     %left '*' '/'
@@ -231,8 +233,8 @@
    
 
     expr : 
-    { $$ = no_expr(); } /* TODO(veni, grantho) : do we still need this? */
-    | OBJECTID ASSIGN expr
+    /*{ $$ = no_expr(); } /* TODO(veni, grantho) : do we still need this? 
+    | */OBJECTID ASSIGN expr
     { $$ = assign($1, $3); }
     /* dispatch */
     | expr '.' OBJECTID '(' expr_comma_list ')'
