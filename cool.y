@@ -184,8 +184,7 @@
     class	
     :
     CLASS TYPEID '{' feature_list '}'
-    { $$ = class_($2,idtable.add_string("Object"),$4,
-    stringtable.add_string(curr_filename)); }
+    { $$ = class_($2,idtable.add_string("Object"),$4, stringtable.add_string(curr_filename)); }
     | CLASS TYPEID INHERITS TYPEID '{' feature_list '}'
     { $$ = class_($2,$4,$6,stringtable.add_string(curr_filename)); }
     | CLASS TYPEID '{' '}'
@@ -193,6 +192,10 @@
     stringtable.add_string(curr_filename)); }
     | CLASS TYPEID INHERITS TYPEID '{' '}'
     { $$ = class_($2,$4,nil_Features(),stringtable.add_string(curr_filename)); }
+    | CLASS TYPEID '{' error '}'
+    { yyerrok; }
+    | CLASS TYPEID INHERITS TYPEID '{' error '}'
+    { yyerrok; }
     ;
 
     feature_list
