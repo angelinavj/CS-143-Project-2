@@ -1,7 +1,8 @@
 #!/bin/bash
 
 DIR=/usr/class/cs143/examples/*
-files=( "$(pwd)/good.cl" "$(pwd)/bad.cl" "$(pwd)/program_class_feature.cl" )
+# files=( "$(pwd)/good.cl" "$(pwd)/bad.cl" "$(pwd)/program_class_feature.cl" )
+files=( "$(pwd)/program_class_feature.cl" )
 
 # for file in $DIR
 # do

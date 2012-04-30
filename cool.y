@@ -202,7 +202,9 @@
     feature :
     OBJECTID '(' formal_list ')' ':' TYPEID '{' expr '}'
     { $$ = method($1, $3, $6, $8); }
-     | OBJECTID ':' TYPEID
+    | OBJECTID '(' ')' ':' TYPEID '{' expr '}'
+    { $$ = method($1, nil_Formals(), $5, $7); }
+    | OBJECTID ':' TYPEID
     { $$ = attr($1, $3, no_expr()); }
     | OBJECTID ':' TYPEID ASSIGN expr
     { $$ = attr($1, $3, $5); }
