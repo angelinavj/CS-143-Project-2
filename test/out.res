@@ -4,7 +4,7 @@ _program
   _class
     A
     B
-    "/afs/ir/users/v/e/veni/CS-143-Project-2/test/let.cl"
+    "/afs/ir/users/g/r/grantho/cs143/CS-143-Project-2/test/let.cl"
     (
     #4
     _attr
@@ -50,7 +50,7 @@ _program
   _class
     C
     B
-    "/afs/ir/users/v/e/veni/CS-143-Project-2/test/let.cl"
+    "/afs/ir/users/g/r/grantho/cs143/CS-143-Project-2/test/let.cl"
     (
     #19
     _attr
@@ -75,7 +75,7 @@ _program
           _let
             c
             Int
-            #-32054832
+            #-32002010
             _no_expr
             : _no_type
             #19
@@ -296,7 +296,7 @@ _program
   _class
     D
     C
-    "/afs/ir/users/v/e/veni/CS-143-Project-2/test/let.cl"
+    "/afs/ir/users/g/r/grantho/cs143/CS-143-Project-2/test/let.cl"
     (
     #42
     _attr

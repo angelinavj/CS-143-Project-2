@@ -120,21 +120,10 @@
     %token <symbol>  STR_CONST 275 INT_CONST 276 
     %token <boolean> BOOL_CONST 277
     %token <symbol>  TYPEID 278 OBJECTID 279 
-    %token ASSIGN 280 NOT 281 LE 282 ERROR 283
+    %token ASSIGN 280 NOT 281 LE 282 ERROR 283 LET_STMT 284
     
     /*  DON'T CHANGE ANYTHING ABOVE THIS LINE, OR YOUR PARSER WONT WORK       */
     /**************************************************************************/
-
-    %right ASSIGN
-    %left NOT
-    %nonassoc LE '<' '='
-    %left '+' '-'
-    %left '*' '/'
-    %left ISVOID
-    %left '~'
-    %left '@'
-    %left '.'
-
 
     /* Complete the nonterminal list below, giving a type for the semantic
     value of each non terminal. (See section 3.6 in the bison 
@@ -162,7 +151,17 @@
     %type <case_> case
 
     /* Precedence declarations go here. */
-    
+
+    %left LET_STMT
+    %right ASSIGN
+    %left NOT
+    %nonassoc LE '<' '='
+    %left '+' '-'
+    %left '*' '/'
+    %left ISVOID
+    %left '~'
+    %left '@'
+    %left '.'    
     
     %%
     /* 
@@ -235,6 +234,8 @@
     { $$ = single_Expressions($1); }
     | expr_list expr ';'
     { $$ = append_Expressions($1, single_Expressions($2)); }
+    | error ';'  /* TODO: error for a '}', but reinserting '}' back into the stream*/
+    { yyerrok; }    
     ;
 
     expr_comma_list 
