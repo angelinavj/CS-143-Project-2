@@ -124,15 +124,17 @@
     
     /*  DON'T CHANGE ANYTHING ABOVE THIS LINE, OR YOUR PARSER WONT WORK       */
     /**************************************************************************/
-    %left '.'
-    %left '@'
-    %left '~'
-    %left ISVOID
-    %left '*' '/'
-    %left '+' '-'
-    %nonassoc LE '<' '='
-    %left NOT
+
     %right ASSIGN
+    %left NOT
+    %nonassoc LE '<' '='
+    %left '+' '-'
+    %left '*' '/'
+    %left ISVOID
+    %left '~'
+    %left '@'
+    %left '.'
+
 
     /* Complete the nonterminal list below, giving a type for the semantic
     value of each non terminal. (See section 3.6 in the bison 
@@ -263,6 +265,7 @@
     { $$ = dispatch($1, $3, $5); }
     | expr '@' TYPEID '.' OBJECTID '(' expr_comma_list ')'
     { $$ = static_dispatch($1, $3, $5, $7); }
+
     | OBJECTID '(' expr_comma_list ')' 
     { $$ = dispatch(object(idtable.add_string("self")), $1, $3); }
     /* end of dispatch */ 

@@ -39,7 +39,10 @@ class C inherits B {
       }, {
         e <- 5;
       }), f <- false ,e <- t);
-      b <- 500@Cde.b(b<-500@Cde.b(b<-500@Cde.b(e <- 5 ,f <- false ,e <- t)));
+      b <- 500@Cde.b();
+
+
+      (* b <- 500@Cde.b(b<-500@Cde.b(b<-500@Cde.b(e <- 5 ,f <- false ,e <- t)));
       if b <- 500@Cde.b(b<-500@Cde.b(b<-500@Cde.b(e <- 5 ,f <- false ,e <- t))) then
         {   
           new Int@Cde.b({
@@ -67,7 +70,7 @@ class C inherits B {
         }, {
           e <- 5;
         }), f <- false ,e <- t))
-      fi;
+      fi;*)
 
 
     }
