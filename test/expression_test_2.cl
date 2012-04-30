@@ -121,6 +121,8 @@ class D inherits C {
   (* testing CASE *)
 
   soStupid(dumb : String, language : Int, reverse : String, yourFace : String) : Bool {
+    {
+    (* Nested cases *)
     case {
       isvoid {
 	      j <- 0;
@@ -141,6 +143,20 @@ class D inherits C {
                   a : A => simple <- true;
                   b : B => also_simple <- (8);
                esac;
-    esac
+    esac;
+
+    (* Only one case. Use multiple (combined) expr forms *)
+    case a <- b()@B.b() of
+      a : A => simple <- true;
+    esac;
+    }
   }; 
+};
+
+class D inherits C {
+
+  a() : B {
+    (* Precedence *)
+    ~ a + b - c * d / e + ~ f + ~ g
+  };
 };

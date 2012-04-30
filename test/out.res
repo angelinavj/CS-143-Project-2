@@ -769,89 +769,46 @@ _program
         String
       Bool
       #124
-      _typcase
-        #124
-        _block
-          #125
-          _isvoid
-            #125
-            _block
-              #126
-              _assign
-                j
-                #126
-                _int
-                  0
-                : _no_type
-              : _no_type
-              #127
-              _loop
-                #127
-                _lt
-                  #127
-                  _object
-                    j
-                  : _no_type
-                  #127
-                  _int
-                    3
-                  : _no_type
-                : _no_type
-                #127
-                _assign
-                  j
-                  #127
-                  _plus
-                    #127
-                    _object
-                      j
-                    : _no_type
-                    #127
-                    _int
-                      1
-                    : _no_type
-                  : _no_type
-                : _no_type
-              : _no_type
-            : _no_type
-          : _no_type
-          #130
-          _cond
-            #130
+      _block
+        #126
+        _typcase
+          #126
+          _block
+            #127
             _isvoid
-              #130
+              #127
               _block
-                #131
+                #128
                 _assign
                   j
-                  #131
+                  #128
                   _int
                     0
                   : _no_type
                 : _no_type
-                #132
+                #129
                 _loop
-                  #132
+                  #129
                   _lt
-                    #132
+                    #129
                     _object
                       j
                     : _no_type
-                    #132
+                    #129
                     _int
                       3
                     : _no_type
                   : _no_type
-                  #132
+                  #129
                   _assign
                     j
-                    #132
+                    #129
                     _plus
-                      #132
+                      #129
                       _object
                         j
                       : _no_type
-                      #132
+                      #129
                       _int
                         1
                       : _no_type
@@ -860,92 +817,240 @@ _program
                 : _no_type
               : _no_type
             : _no_type
-            #134
-            _assign
-              j
-              #134
-              _int
-                0
+            #132
+            _cond
+              #132
+              _isvoid
+                #132
+                _block
+                  #133
+                  _assign
+                    j
+                    #133
+                    _int
+                      0
+                    : _no_type
+                  : _no_type
+                  #134
+                  _loop
+                    #134
+                    _lt
+                      #134
+                      _object
+                        j
+                      : _no_type
+                      #134
+                      _int
+                        3
+                      : _no_type
+                    : _no_type
+                    #134
+                    _assign
+                      j
+                      #134
+                      _plus
+                        #134
+                        _object
+                          j
+                        : _no_type
+                        #134
+                        _int
+                          1
+                        : _no_type
+                      : _no_type
+                    : _no_type
+                  : _no_type
+                : _no_type
+              : _no_type
+              #136
+              _assign
+                j
+                #136
+                _int
+                  0
+                : _no_type
+              : _no_type
+              #138
+              _assign
+                j
+                #138
+                _int
+                  0
+                : _no_type
               : _no_type
             : _no_type
-            #136
+          : _no_type
+          #141
+          _branch
+            a
+            A
+            #141
             _assign
-              j
-              #136
-              _int
-                0
+              simple
+              #141
+              _bool
+                1
               : _no_type
+            : _no_type
+          #142
+          _branch
+            b
+            B
+            #142
+            _typcase
+              #142
+              _dispatch
+                #142
+                _object
+                  self
+                : _no_type
+                a
+                (
+                #142
+                _assign
+                  b
+                  #142
+                  _int
+                    3
+                  : _no_type
+                : _no_type
+                #142
+                _assign
+                  c
+                  #142
+                  _int
+                    8
+                  : _no_type
+                : _no_type
+                )
+              : _no_type
+              #143
+              _branch
+                a
+                A
+                #143
+                _assign
+                  simple
+                  #143
+                  _bool
+                    1
+                  : _no_type
+                : _no_type
+              #144
+              _branch
+                b
+                B
+                #144
+                _assign
+                  also_simple
+                  #144
+                  _int
+                    8
+                  : _no_type
+                : _no_type
+            : _no_type
+        : _no_type
+        #149
+        _typcase
+          #149
+          _assign
+            a
+            #149
+            _static_dispatch
+              #149
+              _dispatch
+                #149
+                _object
+                  self
+                : _no_type
+                b
+                (
+                )
+              : _no_type
+              B
+              b
+              (
+              )
+            : _no_type
+          : _no_type
+          #150
+          _branch
+            a
+            A
+            #150
+            _assign
+              simple
+              #150
+              _bool
+                1
+              : _no_type
+            : _no_type
+        : _no_type
+      : _no_type
+    )
+  #156
+  _class
+    D
+    C
+    "/afs/ir/users/v/e/veni/CS-143-Project-2/test/expression_test_2.cl"
+    (
+    #158
+    _method
+      a
+      B
+      #160
+      _plus
+        #160
+        _plus
+          #160
+          _sub
+            #160
+            _plus
+              #160
+              _neg
+                #160
+                _object
+                  a
+                : _no_type
+              : _no_type
+              #160
+              _object
+                b
+              : _no_type
+            : _no_type
+            #160
+            _divide
+              #160
+              _mul
+                #160
+                _object
+                  c
+                : _no_type
+                #160
+                _object
+                  d
+                : _no_type
+              : _no_type
+              #160
+              _object
+                e
+              : _no_type
+            : _no_type
+          : _no_type
+          #160
+          _neg
+            #160
+            _object
+              f
             : _no_type
           : _no_type
         : _no_type
-        #139
-        _branch
-          a
-          A
-          #139
-          _assign
-            simple
-            #139
-            _bool
-              1
-            : _no_type
+        #160
+        _neg
+          #160
+          _object
+            g
           : _no_type
-        #140
-        _branch
-          b
-          B
-          #140
-          _typcase
-            #140
-            _dispatch
-              #140
-              _object
-                self
-              : _no_type
-              a
-              (
-              #140
-              _assign
-                b
-                #140
-                _int
-                  3
-                : _no_type
-              : _no_type
-              #140
-              _assign
-                c
-                #140
-                _int
-                  8
-                : _no_type
-              : _no_type
-              )
-            : _no_type
-            #141
-            _branch
-              a
-              A
-              #141
-              _assign
-                simple
-                #141
-                _bool
-                  1
-                : _no_type
-              : _no_type
-            #142
-            _branch
-              b
-              B
-              #142
-              _assign
-                also_simple
-                #142
-                _int
-                  8
-                : _no_type
-              : _no_type
-          : _no_type
+        : _no_type
       : _no_type
     )
