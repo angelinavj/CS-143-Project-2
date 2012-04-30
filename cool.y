@@ -154,6 +154,7 @@
     %type <expressions> expr_comma_list
     %type <expression> expr
     %type <expression> initialization
+    %type <expression> let_list
 
     %type <cases> case_list
     %type <case_> case
@@ -203,7 +204,9 @@
     feature :
     OBJECTID '(' formal_list ')' ':' TYPEID '{' expr '}'
     { $$ = method($1, $3, $6, $8); }
-     | OBJECTID ':' TYPEID
+    | OBJECTID '(' ')' ':' TYPEID '{' expr '}'
+    { $$ = method($1, nil_Formals(), $5, $7); }
+    | OBJECTID ':' TYPEID
     { $$ = attr($1, $3, no_expr()); }
     | OBJECTID ':' TYPEID ASSIGN expr
     { $$ = attr($1, $3, $5); }
@@ -238,9 +241,15 @@
     { $$ = append_Expressions($1, single_Expressions($3)); }
     ;
    
+    let_list
+    : IN expr
+    { $$ = $2; }
+    | ',' OBJECTID ':' TYPEID initialization let_list
+    { $$ = let($2, $4, $5, $6); } 
+    ;
 
     initialization
-    : /* no initialization */
+    : /* no assignment */
     { $$ = no_expr(); }
     | ASSIGN expr 
     { $$ = $2; }
@@ -263,8 +272,8 @@
     { $$ = loop($2, $4); }
     | '{' expr_list '}'
     { $$ = block($2); }
-    | LET OBJECTID ':' TYPEID initialization IN expr
-    { $$ = let($2, $4, $5, $7); }
+    | LET OBJECTID ':' TYPEID initialization let_list
+    { $$ = let($2, $4, $5, $6); }
     | CASE expr OF case_list ESAC
     { $$ = typcase($2, $4); }
     | NOT expr

@@ -18,8 +18,8 @@ class A {
   (* while expr loop expr pool *)
   incomprehensible() : Int {
      {
-  	i <- 0
-  	while i < 5 loop { j <- i; i <- i + 1; } pool 
+  	i <- 0;
+  	while i < 5 loop { j <- i; i <- i + 1; } pool ;
      }
   };
 
@@ -33,7 +33,7 @@ class A {
 
   (* Let bindings - no initialization *)
   hardestSyntaxEver(letBinding : String, wasSoHArd : Int) : Bool {
-  	
+     what <- false  			         	
   };
   
 
