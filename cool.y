@@ -283,7 +283,7 @@
     | CASE expr OF case_list ESAC
     { $$ = typcase($2, $4); }
     | NOT expr
-    { $$ = neg($2); } 
+    { $$ = comp($2); } 
     | NEW TYPEID
     { $$ = new_($2); }
     | ISVOID expr
@@ -307,7 +307,7 @@
     | expr '/' expr
     { $$ = divide($1, $3); }
     | '~' expr
-    { $$ = comp($2); }
+    { $$ = neg($2); }
     | expr '<' expr
     { $$ = lt($1, $3); } 
     | expr LE expr
