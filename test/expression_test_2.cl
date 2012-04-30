@@ -29,6 +29,7 @@ class A {
     while (
     if b <- 500 then
         {   
+          true@Cde.b();
           new Int@Cde.b({
             e <- 5;
             f <- false;
@@ -157,6 +158,6 @@ class D inherits C {
 
   a() : B {
     (* Precedence *)
-    ~ a + b - c * d / e + ~ f + ~ g
+    ~ a + b - c * d / e + true + false + ~ f + ~ g <= ~ g + ~f + e / d * c - b + not a < not abc = abc + cde / isvoid a + a() + a(~ a + b - c ,~f + e / d * c) + not case a < 3 of abc : A => 5; esac = ( ~ a + b - c * d / e + ~ f + ~ g <= ~ g + ~f + e / d * c - b + not a < not abc = abc + cde / isvoid a + a() + a(~ a + b - c ,~f + e / d * c) + not case a < 3 of abc : A => "abcdefggg"; esac) 
   };
 };

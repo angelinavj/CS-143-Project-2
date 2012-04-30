@@ -137,75 +137,86 @@ _program
               #32
               _static_dispatch
                 #32
+                _bool
+                  1
+                : _no_type
+                Cde
+                b
+                (
+                )
+              : _no_type
+              #33
+              _static_dispatch
+                #33
                 _new
                   Int
                 : _no_type
                 Cde
                 b
                 (
-                #32
+                #33
                 _block
-                  #33
+                  #34
                   _assign
                     e
-                    #33
+                    #34
                     _int
                       5
                     : _no_type
                   : _no_type
-                  #34
+                  #35
                   _assign
                     f
-                    #34
+                    #35
                     _bool
                       0
                     : _no_type
                   : _no_type
                 : _no_type
-                #35
+                #36
                 _block
-                  #36
+                  #37
                   _assign
                     e
-                    #36
+                    #37
                     _int
                       5
                     : _no_type
                   : _no_type
                 : _no_type
-                #37
+                #38
                 _dispatch
-                  #37
+                  #38
                   _object
                     self
                   : _no_type
                   abc
                   (
-                  #37
+                  #38
                   _block
-                    #38
+                    #39
                     _assign
                       e
-                      #38
+                      #39
                       _int
                         5
                       : _no_type
                     : _no_type
-                    #39
+                    #40
                     _assign
                       f
-                      #39
+                      #40
                       _bool
                         0
                       : _no_type
                     : _no_type
                   : _no_type
-                  #40
+                  #41
                   _block
-                    #41
+                    #42
                     _assign
                       e
-                      #41
+                      #42
                       _int
                         5
                       : _no_type
@@ -213,195 +224,195 @@ _program
                   : _no_type
                   )
                 : _no_type
-                #42
+                #43
                 _assign
                   f
-                  #42
+                  #43
                   _bool
                     0
                   : _no_type
                 : _no_type
-                #42
+                #43
                 _assign
                   e
-                  #42
+                  #43
                   _object
                     t
                   : _no_type
                 : _no_type
                 )
               : _no_type
-              #43
+              #44
               _assign
                 b
-                #43
+                #44
                 _bool
                   0
                 : _no_type
               : _no_type
             : _no_type
-            #46
+            #47
             _assign
               b
-              #46
+              #47
               _dispatch
-                #46
+                #47
                 _object
                   self
                 : _no_type
                 defg_test
                 (
-                #46
+                #47
                 _assign
                   b
-                  #46
+                  #47
                   _object
                     deft_test
                   : _no_type
                 : _no_type
-                #46
+                #47
                 _assign
                   b
-                  #46
+                  #47
                   _isvoid
-                    #46
+                    #47
                     _bool
                       1
                     : _no_type
                   : _no_type
                 : _no_type
-                #46
+                #47
                 _static_dispatch
-                  #46
+                  #47
                   _new
                     Int
                   : _no_type
                   Cde
                   b
                   (
-                  #46
+                  #47
                   _assign
                     e
-                    #46
+                    #47
                     _int
                       5
                     : _no_type
                   : _no_type
-                  #46
+                  #47
                   _assign
                     f
-                    #46
+                    #47
                     _bool
                       0
                     : _no_type
                   : _no_type
                   )
                 : _no_type
-                #46
+                #47
                 _cond
-                  #46
+                  #47
                   _assign
                     b
-                    #46
+                    #47
                     _isvoid
-                      #46
+                      #47
                       _bool
                         1
                       : _no_type
                     : _no_type
                   : _no_type
-                  #46
+                  #47
                   _assign
                     b
-                    #46
+                    #47
                     _object
                       deft_test
                     : _no_type
                   : _no_type
-                  #46
+                  #47
                   _assign
                     b
-                    #46
+                    #47
                     _isvoid
-                      #46
+                      #47
                       _bool
                         1
                       : _no_type
                     : _no_type
                   : _no_type
                 : _no_type
-                #46
+                #47
                 _static_dispatch
-                  #46
+                  #47
                   _new
                     Int
                   : _no_type
                   Cde
                   b
                   (
-                  #46
+                  #47
                   _block
-                    #47
+                    #48
                     _assign
                       e
-                      #47
+                      #48
                       _int
                         5
                       : _no_type
                     : _no_type
-                    #48
+                    #49
                     _assign
                       f
-                      #48
+                      #49
                       _bool
                         0
                       : _no_type
                     : _no_type
                   : _no_type
-                  #49
+                  #50
                   _block
-                    #50
+                    #51
                     _assign
                       e
-                      #50
+                      #51
                       _int
                         5
                       : _no_type
                     : _no_type
                   : _no_type
-                  #51
+                  #52
                   _dispatch
-                    #51
+                    #52
                     _object
                       self
                     : _no_type
                     abc
                     (
-                    #51
+                    #52
                     _block
-                      #52
+                      #53
                       _assign
                         e
-                        #52
+                        #53
                         _int
                           5
                         : _no_type
                       : _no_type
-                      #53
+                      #54
                       _assign
                         f
-                        #53
+                        #54
                         _bool
                           0
                         : _no_type
                       : _no_type
                     : _no_type
-                    #54
+                    #55
                     _block
-                      #55
+                      #56
                       _assign
                         e
-                        #55
+                        #56
                         _int
                           5
                         : _no_type
@@ -409,18 +420,18 @@ _program
                     : _no_type
                     )
                   : _no_type
-                  #56
+                  #57
                   _assign
                     f
-                    #56
+                    #57
                     _bool
                       0
                     : _no_type
                   : _no_type
-                  #56
+                  #57
                   _assign
                     e
-                    #56
+                    #57
                     _object
                       t
                     : _no_type
@@ -431,19 +442,19 @@ _program
               : _no_type
             : _no_type
           : _no_type
-          #58
+          #59
           _assign
             a
-            #58
+            #59
             _plus
-              #58
+              #59
               _int
                 5
               : _no_type
-              #58
+              #59
               _assign
                 b
-                #58
+                #59
                 _int
                   10
                 : _no_type
@@ -451,36 +462,36 @@ _program
             : _no_type
           : _no_type
         : _no_type
-        #61
+        #62
         _loop
-          #61
+          #62
           _block
-            #62
+            #63
             _loop
-              #62
+              #63
               _assign
                 a
-                #62
+                #63
                 _int
                   3
                 : _no_type
               : _no_type
-              #63
+              #64
               _assign
                 b
-                #63
+                #64
                 _dispatch
-                  #63
+                  #64
                   _object
                     self
                   : _no_type
                   c
                   (
-                  #63
+                  #64
                   _new
                     Int
                   : _no_type
-                  #63
+                  #64
                   _new
                     Baraewraeala
                   : _no_type
@@ -488,89 +499,89 @@ _program
                 : _no_type
               : _no_type
             : _no_type
-            #66
+            #67
             _loop
-              #66
+              #67
               _assign
                 a
-                #66
+                #67
                 _int
                   3
                 : _no_type
               : _no_type
-              #67
+              #68
               _assign
                 b
-                #67
+                #68
                 _int
                   5
                 : _no_type
               : _no_type
             : _no_type
           : _no_type
-          #71
+          #72
           _assign
             b
-            #71
+            #72
             _int
               5
             : _no_type
           : _no_type
         : _no_type
       : _no_type
-    #76
+    #77
     _method
       soStupid
-      #76
+      #77
       _formal
         dumb
         String
-      #76
+      #77
       _formal
         language
         Int
-      #76
+      #77
       _formal
         reverse
         String
-      #76
+      #77
       _formal
         yourFace
         String
       Bool
-      #77
+      #78
       _block
-        #78
+        #79
         _assign
           j
-          #78
+          #79
           _int
             0
           : _no_type
         : _no_type
-        #79
+        #80
         _loop
-          #79
+          #80
           _lt
-            #79
+            #80
             _object
               j
             : _no_type
-            #79
+            #80
             _int
               3
             : _no_type
           : _no_type
-          #79
+          #80
           _assign
             j
-            #79
+            #80
             _plus
-              #79
+              #80
               _object
                 j
               : _no_type
-              #79
+              #80
               _int
                 1
               : _no_type
@@ -578,98 +589,98 @@ _program
           : _no_type
         : _no_type
       : _no_type
-    #85
+    #86
     _method
       hardestSyntaxEver
-      #85
+      #86
       _formal
         letBinding
         String
-      #85
+      #86
       _formal
         wasSoHArd
         Int
       Bool
-      #86
+      #87
       _assign
         what
-        #86
+        #87
         _bool
           0
         : _no_type
       : _no_type
     )
-  #94
+  #95
   _class
     C
     B
     "/afs/ir/users/v/e/veni/CS-143-Project-2/test/expression_test_2.cl"
     (
-    #95
+    #96
     _attr
       a
       Int
-      #95
+      #96
       _new
         B
       : _no_type
-    #98
+    #99
     _method
       soStupid
-      #98
+      #99
       _formal
         dumb
         String
-      #98
+      #99
       _formal
         language
         Int
-      #98
+      #99
       _formal
         reverse
         String
-      #98
+      #99
       _formal
         yourFace
         String
       Bool
-      #99
+      #100
       _block
-        #100
+        #101
         _isvoid
-          #100
+          #101
           _block
-            #101
+            #102
             _assign
               j
-              #101
+              #102
               _int
                 0
               : _no_type
             : _no_type
-            #102
+            #103
             _loop
-              #102
+              #103
               _lt
-                #102
+                #103
                 _object
                   j
                 : _no_type
-                #102
+                #103
                 _int
                   3
                 : _no_type
               : _no_type
-              #102
+              #103
               _assign
                 j
-                #102
+                #103
                 _plus
-                  #102
+                  #103
                   _object
                     j
                   : _no_type
-                  #102
+                  #103
                   _int
                     1
                   : _no_type
@@ -678,43 +689,43 @@ _program
             : _no_type
           : _no_type
         : _no_type
-        #105
+        #106
         _cond
-          #105
+          #106
           _isvoid
-            #105
+            #106
             _block
-              #106
+              #107
               _assign
                 j
-                #106
+                #107
                 _int
                   0
                 : _no_type
               : _no_type
-              #107
+              #108
               _loop
-                #107
+                #108
                 _lt
-                  #107
+                  #108
                   _object
                     j
                   : _no_type
-                  #107
+                  #108
                   _int
                     3
                   : _no_type
                 : _no_type
-                #107
+                #108
                 _assign
                   j
-                  #107
+                  #108
                   _plus
-                    #107
+                    #108
                     _object
                       j
                     : _no_type
-                    #107
+                    #108
                     _int
                       1
                     : _no_type
@@ -723,18 +734,18 @@ _program
               : _no_type
             : _no_type
           : _no_type
-          #109
+          #110
           _assign
             j
-            #109
+            #110
             _int
               0
             : _no_type
           : _no_type
-          #111
+          #112
           _assign
             j
-            #111
+            #112
             _int
               0
             : _no_type
@@ -742,73 +753,73 @@ _program
         : _no_type
       : _no_type
     )
-  #120
+  #121
   _class
     D
     C
     "/afs/ir/users/v/e/veni/CS-143-Project-2/test/expression_test_2.cl"
     (
-    #123
+    #124
     _method
       soStupid
-      #123
+      #124
       _formal
         dumb
         String
-      #123
+      #124
       _formal
         language
         Int
-      #123
+      #124
       _formal
         reverse
         String
-      #123
+      #124
       _formal
         yourFace
         String
       Bool
-      #124
+      #125
       _block
-        #126
+        #127
         _typcase
-          #126
+          #127
           _block
-            #127
+            #128
             _isvoid
-              #127
+              #128
               _block
-                #128
+                #129
                 _assign
                   j
-                  #128
+                  #129
                   _int
                     0
                   : _no_type
                 : _no_type
-                #129
+                #130
                 _loop
-                  #129
+                  #130
                   _lt
-                    #129
+                    #130
                     _object
                       j
                     : _no_type
-                    #129
+                    #130
                     _int
                       3
                     : _no_type
                   : _no_type
-                  #129
+                  #130
                   _assign
                     j
-                    #129
+                    #130
                     _plus
-                      #129
+                      #130
                       _object
                         j
                       : _no_type
-                      #129
+                      #130
                       _int
                         1
                       : _no_type
@@ -817,43 +828,43 @@ _program
                 : _no_type
               : _no_type
             : _no_type
-            #132
+            #133
             _cond
-              #132
+              #133
               _isvoid
-                #132
+                #133
                 _block
-                  #133
+                  #134
                   _assign
                     j
-                    #133
+                    #134
                     _int
                       0
                     : _no_type
                   : _no_type
-                  #134
+                  #135
                   _loop
-                    #134
+                    #135
                     _lt
-                      #134
+                      #135
                       _object
                         j
                       : _no_type
-                      #134
+                      #135
                       _int
                         3
                       : _no_type
                     : _no_type
-                    #134
+                    #135
                     _assign
                       j
-                      #134
+                      #135
                       _plus
-                        #134
+                        #135
                         _object
                           j
                         : _no_type
-                        #134
+                        #135
                         _int
                           1
                         : _no_type
@@ -862,104 +873,104 @@ _program
                   : _no_type
                 : _no_type
               : _no_type
-              #136
+              #137
               _assign
                 j
-                #136
+                #137
                 _int
                   0
                 : _no_type
               : _no_type
-              #138
+              #139
               _assign
                 j
-                #138
+                #139
                 _int
                   0
                 : _no_type
               : _no_type
             : _no_type
           : _no_type
-          #141
+          #142
           _branch
             a
             A
-            #141
+            #142
             _assign
               simple
-              #141
+              #142
               _bool
                 1
               : _no_type
             : _no_type
-          #142
+          #143
           _branch
             b
             B
-            #142
+            #143
             _typcase
-              #142
+              #143
               _dispatch
-                #142
+                #143
                 _object
                   self
                 : _no_type
                 a
                 (
-                #142
+                #143
                 _assign
                   b
-                  #142
+                  #143
                   _int
                     3
                   : _no_type
                 : _no_type
-                #142
+                #143
                 _assign
                   c
-                  #142
+                  #143
                   _int
                     8
                   : _no_type
                 : _no_type
                 )
               : _no_type
-              #143
+              #144
               _branch
                 a
                 A
-                #143
+                #144
                 _assign
                   simple
-                  #143
+                  #144
                   _bool
                     1
                   : _no_type
                 : _no_type
-              #144
+              #145
               _branch
                 b
                 B
-                #144
+                #145
                 _assign
                   also_simple
-                  #144
+                  #145
                   _int
                     8
                   : _no_type
                 : _no_type
             : _no_type
         : _no_type
-        #149
+        #150
         _typcase
-          #149
+          #150
           _assign
             a
-            #149
+            #150
             _static_dispatch
-              #149
+              #150
               _dispatch
-                #149
+                #150
                 _object
                   self
                 : _no_type
@@ -973,14 +984,14 @@ _program
               )
             : _no_type
           : _no_type
-          #150
+          #151
           _branch
             a
             A
-            #150
+            #151
             _assign
               simple
-              #150
+              #151
               _bool
                 1
               : _no_type
@@ -988,68 +999,530 @@ _program
         : _no_type
       : _no_type
     )
-  #156
+  #157
   _class
     D
     C
     "/afs/ir/users/v/e/veni/CS-143-Project-2/test/expression_test_2.cl"
     (
-    #158
+    #159
     _method
       a
       B
-      #160
-      _plus
-        #160
+      #161
+      _leq
+        #161
         _plus
-          #160
-          _sub
-            #160
+          #161
+          _plus
+            #161
             _plus
-              #160
-              _neg
-                #160
-                _object
-                  a
+              #161
+              _plus
+                #161
+                _sub
+                  #161
+                  _plus
+                    #161
+                    _neg
+                      #161
+                      _object
+                        a
+                      : _no_type
+                    : _no_type
+                    #161
+                    _object
+                      b
+                    : _no_type
+                  : _no_type
+                  #161
+                  _divide
+                    #161
+                    _mul
+                      #161
+                      _object
+                        c
+                      : _no_type
+                      #161
+                      _object
+                        d
+                      : _no_type
+                    : _no_type
+                    #161
+                    _object
+                      e
+                    : _no_type
+                  : _no_type
+                : _no_type
+                #161
+                _bool
+                  1
                 : _no_type
               : _no_type
-              #160
-              _object
-                b
+              #161
+              _bool
+                0
               : _no_type
             : _no_type
-            #160
-            _divide
-              #160
-              _mul
-                #160
-                _object
-                  c
-                : _no_type
-                #160
-                _object
-                  d
-                : _no_type
-              : _no_type
-              #160
+            #161
+            _neg
+              #161
               _object
-                e
+                f
               : _no_type
             : _no_type
           : _no_type
-          #160
+          #161
           _neg
-            #160
+            #161
             _object
-              f
+              g
             : _no_type
           : _no_type
         : _no_type
-        #160
-        _neg
-          #160
-          _object
-            g
+        #161
+        _plus
+          #161
+          _sub
+            #161
+            _plus
+              #161
+              _plus
+                #161
+                _neg
+                  #161
+                  _object
+                    g
+                  : _no_type
+                : _no_type
+                #161
+                _neg
+                  #161
+                  _object
+                    f
+                  : _no_type
+                : _no_type
+              : _no_type
+              #161
+              _mul
+                #161
+                _divide
+                  #161
+                  _object
+                    e
+                  : _no_type
+                  #161
+                  _object
+                    d
+                  : _no_type
+                : _no_type
+                #161
+                _object
+                  c
+                : _no_type
+              : _no_type
+            : _no_type
+            #161
+            _object
+              b
+            : _no_type
+          : _no_type
+          #161
+          _comp
+            #161
+            _lt
+              #161
+              _object
+                a
+              : _no_type
+              #161
+              _comp
+                #161
+                _eq
+                  #161
+                  _object
+                    abc
+                  : _no_type
+                  #161
+                  _plus
+                    #161
+                    _plus
+                      #161
+                      _plus
+                        #161
+                        _plus
+                          #161
+                          _object
+                            abc
+                          : _no_type
+                          #161
+                          _divide
+                            #161
+                            _object
+                              cde
+                            : _no_type
+                            #161
+                            _isvoid
+                              #161
+                              _object
+                                a
+                              : _no_type
+                            : _no_type
+                          : _no_type
+                        : _no_type
+                        #161
+                        _dispatch
+                          #161
+                          _object
+                            self
+                          : _no_type
+                          a
+                          (
+                          )
+                        : _no_type
+                      : _no_type
+                      #161
+                      _dispatch
+                        #161
+                        _object
+                          self
+                        : _no_type
+                        a
+                        (
+                        #161
+                        _sub
+                          #161
+                          _plus
+                            #161
+                            _neg
+                              #161
+                              _object
+                                a
+                              : _no_type
+                            : _no_type
+                            #161
+                            _object
+                              b
+                            : _no_type
+                          : _no_type
+                          #161
+                          _object
+                            c
+                          : _no_type
+                        : _no_type
+                        #161
+                        _plus
+                          #161
+                          _neg
+                            #161
+                            _object
+                              f
+                            : _no_type
+                          : _no_type
+                          #161
+                          _mul
+                            #161
+                            _divide
+                              #161
+                              _object
+                                e
+                              : _no_type
+                              #161
+                              _object
+                                d
+                              : _no_type
+                            : _no_type
+                            #161
+                            _object
+                              c
+                            : _no_type
+                          : _no_type
+                        : _no_type
+                        )
+                      : _no_type
+                    : _no_type
+                    #161
+                    _comp
+                      #161
+                      _eq
+                        #161
+                        _typcase
+                          #161
+                          _lt
+                            #161
+                            _object
+                              a
+                            : _no_type
+                            #161
+                            _int
+                              3
+                            : _no_type
+                          : _no_type
+                          #161
+                          _branch
+                            abc
+                            A
+                            #161
+                            _int
+                              5
+                            : _no_type
+                        : _no_type
+                        #161
+                        _leq
+                          #161
+                          _plus
+                            #161
+                            _plus
+                              #161
+                              _sub
+                                #161
+                                _plus
+                                  #161
+                                  _neg
+                                    #161
+                                    _object
+                                      a
+                                    : _no_type
+                                  : _no_type
+                                  #161
+                                  _object
+                                    b
+                                  : _no_type
+                                : _no_type
+                                #161
+                                _divide
+                                  #161
+                                  _mul
+                                    #161
+                                    _object
+                                      c
+                                    : _no_type
+                                    #161
+                                    _object
+                                      d
+                                    : _no_type
+                                  : _no_type
+                                  #161
+                                  _object
+                                    e
+                                  : _no_type
+                                : _no_type
+                              : _no_type
+                              #161
+                              _neg
+                                #161
+                                _object
+                                  f
+                                : _no_type
+                              : _no_type
+                            : _no_type
+                            #161
+                            _neg
+                              #161
+                              _object
+                                g
+                              : _no_type
+                            : _no_type
+                          : _no_type
+                          #161
+                          _plus
+                            #161
+                            _sub
+                              #161
+                              _plus
+                                #161
+                                _plus
+                                  #161
+                                  _neg
+                                    #161
+                                    _object
+                                      g
+                                    : _no_type
+                                  : _no_type
+                                  #161
+                                  _neg
+                                    #161
+                                    _object
+                                      f
+                                    : _no_type
+                                  : _no_type
+                                : _no_type
+                                #161
+                                _mul
+                                  #161
+                                  _divide
+                                    #161
+                                    _object
+                                      e
+                                    : _no_type
+                                    #161
+                                    _object
+                                      d
+                                    : _no_type
+                                  : _no_type
+                                  #161
+                                  _object
+                                    c
+                                  : _no_type
+                                : _no_type
+                              : _no_type
+                              #161
+                              _object
+                                b
+                              : _no_type
+                            : _no_type
+                            #161
+                            _comp
+                              #161
+                              _lt
+                                #161
+                                _object
+                                  a
+                                : _no_type
+                                #161
+                                _comp
+                                  #161
+                                  _eq
+                                    #161
+                                    _object
+                                      abc
+                                    : _no_type
+                                    #161
+                                    _plus
+                                      #161
+                                      _plus
+                                        #161
+                                        _plus
+                                          #161
+                                          _plus
+                                            #161
+                                            _object
+                                              abc
+                                            : _no_type
+                                            #161
+                                            _divide
+                                              #161
+                                              _object
+                                                cde
+                                              : _no_type
+                                              #161
+                                              _isvoid
+                                                #161
+                                                _object
+                                                  a
+                                                : _no_type
+                                              : _no_type
+                                            : _no_type
+                                          : _no_type
+                                          #161
+                                          _dispatch
+                                            #161
+                                            _object
+                                              self
+                                            : _no_type
+                                            a
+                                            (
+                                            )
+                                          : _no_type
+                                        : _no_type
+                                        #161
+                                        _dispatch
+                                          #161
+                                          _object
+                                            self
+                                          : _no_type
+                                          a
+                                          (
+                                          #161
+                                          _sub
+                                            #161
+                                            _plus
+                                              #161
+                                              _neg
+                                                #161
+                                                _object
+                                                  a
+                                                : _no_type
+                                              : _no_type
+                                              #161
+                                              _object
+                                                b
+                                              : _no_type
+                                            : _no_type
+                                            #161
+                                            _object
+                                              c
+                                            : _no_type
+                                          : _no_type
+                                          #161
+                                          _plus
+                                            #161
+                                            _neg
+                                              #161
+                                              _object
+                                                f
+                                              : _no_type
+                                            : _no_type
+                                            #161
+                                            _mul
+                                              #161
+                                              _divide
+                                                #161
+                                                _object
+                                                  e
+                                                : _no_type
+                                                #161
+                                                _object
+                                                  d
+                                                : _no_type
+                                              : _no_type
+                                              #161
+                                              _object
+                                                c
+                                              : _no_type
+                                            : _no_type
+                                          : _no_type
+                                          )
+                                        : _no_type
+                                      : _no_type
+                                      #161
+                                      _comp
+                                        #161
+                                        _typcase
+                                          #161
+                                          _lt
+                                            #161
+                                            _object
+                                              a
+                                            : _no_type
+                                            #161
+                                            _int
+                                              3
+                                            : _no_type
+                                          : _no_type
+                                          #161
+                                          _branch
+                                            abc
+                                            A
+                                            #161
+                                            _string
+                                              "abcdefggg"
+                                            : _no_type
+                                        : _no_type
+                                      : _no_type
+                                    : _no_type
+                                  : _no_type
+                                : _no_type
+                              : _no_type
+                            : _no_type
+                          : _no_type
+                        : _no_type
+                      : _no_type
+                    : _no_type
+                  : _no_type
+                : _no_type
+              : _no_type
+            : _no_type
           : _no_type
         : _no_type
       : _no_type
