@@ -22,6 +22,17 @@ class C inherits B {
   else
     false
   fi;
+
+
+  a : Int <- b <- let a : Int ,b : Int <- a()@B.a() ,c : Int <- {
+      b <- 545;
+      afadsf;
+      true;
+   } in if a * b - c + d - ~ n then
+    while true loop false pool
+  else
+    false
+  fi;
 };
 
 (* class TYPE { } *)

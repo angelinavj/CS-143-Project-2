@@ -176,65 +176,180 @@ _program
           : _no_type
         : _no_type
       : _no_type
-    )
-  #28
-  _class
-    D
-    C
-    "/afs/ir/users/v/e/veni/CS-143-Project-2/test/let.cl"
-    (
-    #31
+    #27
     _attr
       a
       Int
-      #31
+      #27
       _assign
         b
-        #31
+        #27
         _let
           a
           Int
           #0
           _no_expr
           : _no_type
-          #31
+          #27
           _let
             b
             Int
-            #32
+            #27
+            _static_dispatch
+              #27
+              _dispatch
+                #27
+                _object
+                  self
+                : _no_type
+                a
+                (
+                )
+              : _no_type
+              B
+              a
+              (
+              )
+            : _no_type
+            #27
+            _let
+              c
+              Int
+              #27
+              _block
+                #28
+                _assign
+                  b
+                  #28
+                  _int
+                    545
+                  : _no_type
+                : _no_type
+                #29
+                _object
+                  afadsf
+                : _no_type
+                #30
+                _bool
+                  1
+                : _no_type
+              : _no_type
+              #31
+              _cond
+                #31
+                _sub
+                  #31
+                  _plus
+                    #31
+                    _sub
+                      #31
+                      _mul
+                        #31
+                        _object
+                          a
+                        : _no_type
+                        #31
+                        _object
+                          b
+                        : _no_type
+                      : _no_type
+                      #31
+                      _object
+                        c
+                      : _no_type
+                    : _no_type
+                    #31
+                    _object
+                      d
+                    : _no_type
+                  : _no_type
+                  #31
+                  _neg
+                    #31
+                    _object
+                      n
+                    : _no_type
+                  : _no_type
+                : _no_type
+                #32
+                _loop
+                  #32
+                  _bool
+                    1
+                  : _no_type
+                  #32
+                  _bool
+                    0
+                  : _no_type
+                : _no_type
+                #34
+                _bool
+                  0
+                : _no_type
+              : _no_type
+            : _no_type
+          : _no_type
+        : _no_type
+      : _no_type
+    )
+  #39
+  _class
+    D
+    C
+    "/afs/ir/users/v/e/veni/CS-143-Project-2/test/let.cl"
+    (
+    #42
+    _attr
+      a
+      Int
+      #42
+      _assign
+        b
+        #42
+        _let
+          a
+          Int
+          #0
+          _no_expr
+          : _no_type
+          #42
+          _let
+            b
+            Int
+            #43
             _let
               a
               Int
-              #32
+              #43
               _let
                 a
                 Str
                 #0
                 _no_expr
                 : _no_type
-                #32
+                #43
                 _let
                   b
                   Int
-                  #32
+                  #43
                   _int
                     5
                   : _no_type
-                  #32
+                  #43
                   _bool
                     1
                   : _no_type
                 : _no_type
               : _no_type
-              #32
+              #43
               _let
                 b
                 Int
-                #32
+                #43
                 _static_dispatch
-                  #32
+                  #43
                   _dispatch
-                    #32
+                    #43
                     _object
                       self
                     : _no_type
@@ -247,110 +362,110 @@ _program
                   (
                   )
                 : _no_type
-                #32
+                #43
                 _cond
-                  #32
+                  #43
                   _sub
-                    #32
+                    #43
                     _plus
-                      #32
+                      #43
                       _sub
-                        #32
+                        #43
                         _mul
-                          #32
+                          #43
                           _object
                             a
                           : _no_type
-                          #32
+                          #43
                           _object
                             b
                           : _no_type
                         : _no_type
-                        #32
+                        #43
                         _object
                           c
                         : _no_type
                       : _no_type
-                      #32
+                      #43
                       _object
                         d
                       : _no_type
                     : _no_type
-                    #32
+                    #43
                     _neg
-                      #32
+                      #43
                       _object
                         n
                       : _no_type
                     : _no_type
                   : _no_type
-                  #33
+                  #44
                   _loop
-                    #33
+                    #44
                     _bool
                       1
                     : _no_type
-                    #33
+                    #44
                     _bool
                       0
                     : _no_type
                   : _no_type
-                  #35
+                  #46
                   _bool
                     0
                   : _no_type
                 : _no_type
               : _no_type
             : _no_type
-            #37
+            #48
             _cond
-              #37
+              #48
               _sub
-                #37
+                #48
                 _plus
-                  #37
+                  #48
                   _sub
-                    #37
+                    #48
                     _mul
-                      #37
+                      #48
                       _object
                         a
                       : _no_type
-                      #37
+                      #48
                       _object
                         b
                       : _no_type
                     : _no_type
-                    #37
+                    #48
                     _object
                       c
                     : _no_type
                   : _no_type
-                  #37
+                  #48
                   _object
                     d
                   : _no_type
                 : _no_type
-                #37
+                #48
                 _neg
-                  #37
+                  #48
                   _object
                     n
                   : _no_type
                 : _no_type
               : _no_type
-              #38
+              #49
               _loop
-                #38
+                #49
                 _bool
                   1
                 : _no_type
-                #38
+                #49
                 _bool
                   0
                 : _no_type
               : _no_type
-              #40
+              #51
               _bool
                 0
               : _no_type
