@@ -130,10 +130,11 @@
     %nonassoc LE '<' '='
     %left '+' '-'
     %left '*' '/'
+    %left ISVOID
     %left '~'
     %left '@'
     %left '.'
-    %left ISVOID
+
 
     /* Complete the nonterminal list below, giving a type for the semantic
     value of each non terminal. (See section 3.6 in the bison 
