@@ -1,0 +1,14 @@
+GRANT
+----------
+--Correct LET precedence
+--Finish Error Handling
+--README:
+	--Explain how let shift-reduce conflicts resolved
+	--Error handling
+
+VENI
+----------
+--Test LET, Errors, Everything
+--README
+    --Explain how fixed shift reduce (operator precedence and let)
+    --Test cases
