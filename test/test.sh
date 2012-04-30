@@ -2,9 +2,9 @@
 
 DIR=/usr/class/cs143/examples/*
 
-#files=( "$(pwd)/good.cl" "$(pwd)/bad.cl"
-#"$(pwd)/program_class_feature.cl" "$(pwd)/expression_test_2.cl" "$(pwd)/problem.cl" )
-files=( "$(pwd)/let.cl" )
+
+#files=( "$(pwd)/good.cl" "$(pwd)/bad.cl" "$(pwd)/program_class_feature.cl" "$(pwd)/expression_test_2.cl")
+files=( "$(pwd)/let.cl" "$(pwd)/problem.cl" "$(pwd)/assign_dispatch.cl" "$(pwd)/expression_test_2.cl" )
 
 
 # for file in $DIR
