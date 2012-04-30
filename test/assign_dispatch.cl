@@ -24,6 +24,7 @@ class C inherits B {
   
   d(a : Int, b : Bool, c : String) : String {
     {
+      b();
       b <- 500;
       b <- isvoid true;
       b <- defg_test(b <- deft_test ,b <- isvoid true, new Int@Cde.b(e <- 5 ,f<- false));
@@ -42,7 +43,7 @@ class C inherits B {
       b <- 500@Cde.b();
 
 
-      (* b <- 500@Cde.b(b<-500@Cde.b(b<-500@Cde.b(e <- 5 ,f <- false ,e <- t)));
+      b <- 500@Cde.b(b<-500@Cde.b(b<-500@Cde.b(e <- 5 ,f <- false ,e <- t)));
       if b <- 500@Cde.b(b<-500@Cde.b(b<-500@Cde.b(e <- 5 ,f <- false ,e <- t))) then
         {   
           new Int@Cde.b({
@@ -70,7 +71,7 @@ class C inherits B {
         }, {
           e <- 5;
         }), f <- false ,e <- t))
-      fi;*)
+      fi;
 
 
     }

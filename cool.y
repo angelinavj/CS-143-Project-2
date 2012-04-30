@@ -321,7 +321,7 @@
     ;
 
     case :
-    OBJECTID ':' TYPEID ASSIGN expr ';'
+    OBJECTID ':' TYPEID DARROW expr ';'
     { $$ = branch($1, $3, $5); }
     ;
     
