@@ -248,8 +248,8 @@
     ;
    
     let_list
-    : IN expr
-    { $$ = $2; }
+    : IN expr %prec LET_STMT
+    { $$ = $2; } 
     | ',' OBJECTID ':' TYPEID initialization let_list
     { $$ = let($2, $4, $5, $6); } 
     ;
@@ -269,7 +269,6 @@
     { $$ = dispatch($1, $3, $5); }
     | expr '@' TYPEID '.' OBJECTID '(' expr_comma_list ')'
     { $$ = static_dispatch($1, $3, $5, $7); }
-
     | OBJECTID '(' expr_comma_list ')' 
     { $$ = dispatch(object(idtable.add_string("self")), $1, $3); }
     /* end of dispatch */ 
