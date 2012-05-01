@@ -234,7 +234,7 @@
     { $$ = single_Expressions($1); }
     | expr_list expr ';'
     { $$ = append_Expressions($1, single_Expressions($2)); }
-    | error ';'  /* TODO: error for a '}', but reinserting '}' back into the stream*/
+    | ';' error ';'  /* TODO: error for a '}', but reinserting '}' back into the stream*/
     { yyerrok; }    
     ;
 
@@ -278,6 +278,8 @@
     { $$ = loop($2, $4); }
     | '{' expr_list '}'
     { $$ = block($2); }
+    | '{' expr_list error '}' 
+    { yyerrok;  }
     | LET OBJECTID ':' TYPEID initialization let_list
     { $$ = let($2, $4, $5, $6); }
     | CASE expr OF case_list ESAC
