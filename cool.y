@@ -177,6 +177,10 @@
     | class_list class ';'	/* several classes */
     { $$ = append_Classes($1,single_Classes($2)); 
     parse_results = $$; }
+    | class_list error class ';' /* missing semicolon class def error */
+    { yyerrok; }
+    | class   /* missing semicolon class def for last class error */
+    { yyerrok; }
     ;
     
     /* If no parent is specified, the class inherits from the Object class. */
@@ -203,6 +207,8 @@
     { $$ = single_Features($1); }
     | feature_list feature ';'   /*several features */
     { $$ = append_Features($1, single_Features($2));}
+    | feature_list error ';'
+    { yyerrok; }
     ;
 
     feature :
@@ -252,6 +258,8 @@
     { $$ = $2; } 
     | ',' OBJECTID ':' TYPEID initialization let_list
     { $$ = let($2, $4, $5, $6); } 
+    | ',' error ','
+    { yyerrok; }
     ;
 
     initialization
