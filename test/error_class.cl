@@ -1,3 +1,10 @@
+class
+
+class blahblah {
+
+}
+
+
 (* error in class *)
 class A inherits B {
    a : Int <- new B;
