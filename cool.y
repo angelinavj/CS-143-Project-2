@@ -177,9 +177,7 @@
     | class_list class ';'	/* several classes */
     { $$ = append_Classes($1,single_Classes($2)); 
     parse_results = $$; }
-    | class_list error class ';' /* missing semicolon class def error */
-    { yyerrok; }
-    | class   /* missing semicolon class def for last class error */
+    | class_list error '}' ';' class
     { yyerrok; }
     ;
     
@@ -195,10 +193,6 @@
     stringtable.add_string(curr_filename)); }
     | CLASS TYPEID INHERITS TYPEID '{' '}'
     { $$ = class_($2,$4,nil_Features(),stringtable.add_string(curr_filename)); }
-    | CLASS TYPEID '{' error '}'
-    { yyerrok; }
-    | CLASS TYPEID INHERITS TYPEID '{' error '}'
-    { yyerrok; }
     ;
 
     feature_list
@@ -240,7 +234,7 @@
     { $$ = single_Expressions($1); }
     | expr_list expr ';'
     { $$ = append_Expressions($1, single_Expressions($2)); }
-    | ';' error ';'  /* TODO: error for a '}', but reinserting '}' back into the stream*/
+    | expr_list error ';'  
     { yyerrok; }    
     ;
 
