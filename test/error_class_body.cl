@@ -7,3 +7,9 @@ class A {
 class A {
   a : Int;
 };
+
+
+(* This is not a valid class - if we recover, we should get an error for this *)
+class A {
+  a : Int 
+};

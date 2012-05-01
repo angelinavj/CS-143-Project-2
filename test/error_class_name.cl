@@ -7,3 +7,8 @@ class a {
 class A {
   a : Int;
 };
+
+(* The same invalid class - we should get the error for this *)
+class a {
+  
+};
