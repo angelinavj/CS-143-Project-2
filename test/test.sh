@@ -4,7 +4,7 @@ DIR=/usr/class/cs143/examples/*
 
 # files=( "$(pwd)/let.cl" "$(pwd)/problem.cl" "$(pwd)/assign_dispatch.cl" "$(pwd)/expression_test_2.cl" "$(pwd)/good.cl" "$(pwd)/error_class.cl" )
 
-files=( "$(pwd)/error_class.cl" )
+files=( "$(pwd)/error2_class.cl" )
 # for file in $DIR
 # do
 #   files=( "${files[@]}" $file)

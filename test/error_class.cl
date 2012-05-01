@@ -83,6 +83,10 @@ class T {
 
 };
 
+(* error inside class *)
+class A {
+  abcde
+};
 
 (* class TYPE { } *)
 class D inherits C {
