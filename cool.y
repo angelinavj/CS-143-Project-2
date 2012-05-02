@@ -191,7 +191,7 @@
     stringtable.add_string(curr_filename)); }
     | CLASS TYPEID INHERITS TYPEID '{' '}'
     { $$ = class_($2,$4,nil_Features(),stringtable.add_string(curr_filename)); }
-    | class ';' error '}' ';' CLASS
+    | class ';' error '}' ';'
     { yyerrok; }
     ;
 
@@ -200,9 +200,7 @@
     feature ';' /* single feature  */
     { $$ = single_Features($1); }
     | feature_list feature ';'   /*several features */
-    { $$ = append_Features($1, single_Features($2));}
-    | feature_list error ';'
-    { yyerrok; }
+    { $$ = append_Features($1, single_Features($2));}    
     ;
 
     feature :
@@ -214,6 +212,8 @@
     { $$ = attr($1, $3, no_expr()); }
     | OBJECTID ':' TYPEID ASSIGN expr
     { $$ = attr($1, $3, $5); }
+    | feature ';' error ';'
+    { yyerrok; }
     ;
 
 
