@@ -177,6 +177,8 @@
     | class_list class ';'	/* several classes */
     { $$ = append_Classes($1,single_Classes($2)); 
     parse_results = $$; }
+    | error '}' ';'    
+    { yyerrok; }    
     ;
     
     /* If no parent is specified, the class inherits from the Object class. */
@@ -191,8 +193,6 @@
     stringtable.add_string(curr_filename)); }
     | CLASS TYPEID INHERITS TYPEID '{' '}'
     { $$ = class_($2,$4,nil_Features(),stringtable.add_string(curr_filename)); }
-/*| CLASS error '}' ';'
-  { yyerrok; } */
     ;
 
     feature_list
