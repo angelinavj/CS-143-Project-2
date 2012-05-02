@@ -201,6 +201,10 @@
     { $$ = single_Features($1); }
     | feature_list feature ';'   /*several features */
     { $$ = append_Features($1, single_Features($2));}    
+    | error ';'
+    { yyerrok; }
+    | error '}'
+    { yyerrok; }    
     ;
 
     feature :
@@ -212,8 +216,6 @@
     { $$ = attr($1, $3, no_expr()); }
     | OBJECTID ':' TYPEID ASSIGN expr
     { $$ = attr($1, $3, $5); }
-/*| feature ';' error ';'
-  { yyerrok; } */
     ;
 
 
