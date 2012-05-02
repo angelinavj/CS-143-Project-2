@@ -203,8 +203,8 @@
     { $$ = append_Features($1, single_Features($2));}    
     | error ';'
     { yyerrok; }
-    | error '}'
-    { yyerrok; }    
+    | error '}' ';'
+    { yyerrok; }        
     ;
 
     feature :
