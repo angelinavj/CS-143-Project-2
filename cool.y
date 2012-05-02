@@ -252,7 +252,7 @@
     { $$ = $2; } 
     | ',' OBJECTID ':' TYPEID initialization let_list
     { $$ = let($2, $4, $5, $6); } 
-    | ',' error ','
+    | ',' error let_list
     { yyerrok; }
     ;
 
