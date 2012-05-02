@@ -1,0 +1,3 @@
+"/afs/ir/users/v/e/veni/CS-143-Project-2/test/error_combo2.cl", line 3: syntax error at or near TYPEID = A
+"/afs/ir/users/v/e/veni/CS-143-Project-2/test/error_combo2.cl", line 72: syntax error at or near '}'
+Compilation halted due to lex and parse errors
