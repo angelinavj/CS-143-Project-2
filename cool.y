@@ -191,8 +191,8 @@
     stringtable.add_string(curr_filename)); }
     | CLASS TYPEID INHERITS TYPEID '{' '}'
     { $$ = class_($2,$4,nil_Features(),stringtable.add_string(curr_filename)); }
-    | class ';' error '}' ';'
-    { yyerrok; }
+/*| CLASS error '}' ';'
+  { yyerrok; } */
     ;
 
     feature_list
@@ -212,8 +212,8 @@
     { $$ = attr($1, $3, no_expr()); }
     | OBJECTID ':' TYPEID ASSIGN expr
     { $$ = attr($1, $3, $5); }
-    | feature ';' error ';'
-    { yyerrok; }
+/*| feature ';' error ';'
+  { yyerrok; } */
     ;
 
 
@@ -234,8 +234,10 @@
     { $$ = single_Expressions($1); }
     | expr_list expr ';'
     { $$ = append_Expressions($1, single_Expressions($2)); }
-    | expr_list error ';'  
+    | error ';'
     { yyerrok; }    
+    | error '}'
+    { yyerrok; }
     ;
 
     expr_comma_list 
@@ -252,7 +254,7 @@
     { $$ = $2; } 
     | ',' OBJECTID ':' TYPEID initialization let_list
     { $$ = let($2, $4, $5, $6); } 
-    | ',' error let_list
+    | error let_list
     { yyerrok; }
     ;
 
@@ -280,8 +282,6 @@
     { $$ = loop($2, $4); }
     | '{' expr_list '}'
     { $$ = block($2); }
-    | '{' expr_list error '}' 
-    { yyerrok;  }
     | LET OBJECTID ':' TYPEID initialization let_list
     { $$ = let($2, $4, $5, $6); }
     | CASE expr OF case_list ESAC

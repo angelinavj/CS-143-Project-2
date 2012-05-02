@@ -4,7 +4,7 @@ class A {
     A <- true;
 
     (* valid expr, so parser has time to recover *)
-    ~true;
+    ~true; 
 
     (* invalid ID <- expr *)
     a <- Type;
