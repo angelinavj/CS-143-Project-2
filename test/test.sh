@@ -2,9 +2,14 @@
 
 DIR=/usr/class/cs143/examples/*
 
-files=( "$(pwd)/let.cl" "$(pwd)/problem.cl" "$(pwd)/assign_dispatch.cl" "$(pwd)/expression_test_2.cl" "$(pwd)/good.cl" "$(pwd)/error_class.cl" "$(pwd)/error_class_stupid.cl" "$(pwd)/bad.cl" )
+#files=( "$(pwd)/let.cl" "$(pwd)/problem.cl" "$(pwd)/assign_dispatch.cl" "$(pwd)/expression_test_2.cl" "$(pwd)/good.cl" "$(pwd)/error_class.cl" "$(pwd)/error_class_stupid.cl" "$(pwd)/bad.cl" )
 
-#files=( "$(pwd)/bad.cl" )
+files=(
+"$(pwd)/error_class_body.cl" "$(pwd)/error_class_name.cl" "$(pwd)/error_class_parent.cl" "$(pwd)/error_class.cl"
+"$(pwd)/error_feature_attr.cl" "$(pwd)/error_feature_method.cl"
+"$(pwd)/error_block_1.cl" "$(pwd)/error_block_2.cl" "$(pwd)/error_block_3.cl"
+"$(pwd)/error_let.cl"
+)
 
 # for file in $DIR
 # do
